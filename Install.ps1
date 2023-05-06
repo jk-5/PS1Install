@@ -2,8 +2,6 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-function Out-Default {}
-
 New-Item "C:\Program Files\WinRAR\rarreg.key"
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'RAR registration data'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'WinRAR'
@@ -16,6 +14,8 @@ Add-content "C:\Program Files\WinRAR\rarreg.key" 'b41bcf56929486b8bcdac33d50ecf7
 Add-content "C:\Program Files\WinRAR\rarreg.key" '982fbe71e93df6b6346c37a3890f3c7edc65d7f5455470d13d1190'
 Add-content "C:\Program Files\WinRAR\rarreg.key" '6e6fb824bcf25f155547b5fc41901ad58c0992f570be1cf5608ba9'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'aef69d48c864bcd72d15163897773d314187f6a9af350808719796'
+
+Clear-Host
 
 [Console]::WriteLine("WinRar activated successful.")
 
