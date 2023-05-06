@@ -15,8 +15,8 @@ Add-content "C:\Program Files\WinRAR\rarreg.key" '982fbe71e93df6b6346c37a3890f3c
 Add-content "C:\Program Files\WinRAR\rarreg.key" '6e6fb824bcf25f155547b5fc41901ad58c0992f570be1cf5608ba9'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'aef69d48c864bcd72d15163897773d314187f6a9af350808719796'
 
-Clear-Host
+cls
 
 [Console]::WriteLine("WinRar activated successful.")
 
-Start-Process -FilePath "C:\Program Files\WinRAR\WinRAR.exe" -Wait
+Start-Process -FilePath "C:\Program Files\WinRAR\WinRAR.exe"
