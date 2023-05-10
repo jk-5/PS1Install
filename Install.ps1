@@ -2,8 +2,14 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-Remove-Item "C:\Program Files\WinRAR\rarreg.key"
-New-Item "C:\Program Files\WinRAR\rarreg.key"
+$file = "C:\Program Files\WinRAR\rarreg.key"
+$app = "C:\Program Files\WinRAR\WinRAR.exe"
+
+if (Test-Path -Path $file -PathType Leaf) {
+Remove-Item $file
+}
+
+New-Item $file
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'RAR registration data'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'WinRAR'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'Unlimited Company License'
@@ -20,4 +26,4 @@ cls
 
 [Console]::WriteLine("WinRar activated successful.")
 
-Start-Process -FilePath "C:\Program Files\WinRAR\WinRAR.exe"
+Start-Process -FilePath $app
