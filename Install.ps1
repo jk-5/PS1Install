@@ -2,6 +2,7 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+Remove-Item "C:\Program Files\WinRAR\rarreg.key"
 New-Item "C:\Program Files\WinRAR\rarreg.key"
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'RAR registration data'
 Add-content "C:\Program Files\WinRAR\rarreg.key" 'WinRAR'
