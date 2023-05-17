@@ -72,7 +72,7 @@ do {
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
         }
         0 {
-            Write-Host "Wyjście z programu..."
+            Write-Host "Zamykanie programu..."
         }
     }
 
