@@ -8,7 +8,7 @@ $file = "C:\Program Files\WinRAR\rarreg.key"
 $app = "C:\Program Files\WinRAR\WinRAR.exe"
 
 # Pobieranie i instalacja WinRar
-Write-Host "Instalacja WinRar."
+Write-Host "Instalacja WinRAR."
 $winrarInstaller = "$env:TEMP\winrar_setup.exe"
 Invoke-WebRequest -Uri $winrarUrl -OutFile $winrarInstaller
 Start-Process -FilePath $winrarInstaller -Wait
