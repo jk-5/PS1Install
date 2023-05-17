@@ -2,24 +2,23 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+# Definicja zmiennych
 $winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-621pl.exe"
-$installerPath = "$env:TEMP\winrar_installer.exe"
+$file = "C:\Program Files\WinRAR\rarreg.key"
+$app = "C:\Program Files\WinRAR\WinRAR.exe"
 
-# Pobieranie instalatora WinRAR
-Invoke-WebRequest -Uri $winrarUrl -OutFile $installerPath
-
-# Uruchomienie instalatora
-Start-Process -FilePath $installerPath -Wait
+# Pobieranie i instalacja WinRar
+Write-Host "Instalacja WinRar."
+$winrarInstaller = "$env:TEMP\winrar_setup.exe"
+Invoke-WebRequest -Uri $winrarUrl -OutFile $winrarInstaller
+Start-Process -FilePath $winrarInstaller -Wait
+Remove-Item -Path $winrarInstaller
 
 # Aktywacja WinRAR
 try {
-    $file = "C:\Program Files\WinRAR\rarreg.key"
-	$app = "C:\Program Files\WinRAR\WinRAR.exe"
-
-	if (Test-Path -Path $file -PathType Leaf) {
+    	if (Test-Path -Path $file -PathType Leaf) {
 	Remove-Item $file
 	}
-
 	New-Item $file
 	Add-content "C:\Program Files\WinRAR\rarreg.key" 'RAR registration data'
 	Add-content "C:\Program Files\WinRAR\rarreg.key" 'WinRAR'
@@ -40,9 +39,6 @@ try {
 catch {
     	Write-Host "Wystąpił błąd podczas aktywacji WinRAR: $_"
 	}
-
-# Usuwanie pliku instalatora
-	Remove-Item -Path $installerPath
 	
 # Uruchomienie WinRAR	
 	Start-Process -FilePath $app
