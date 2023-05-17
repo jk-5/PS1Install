@@ -32,4 +32,4 @@ Remove-Item -Path $langInstaller
 
 # Uruchomienie IrfanView
 Write-Host "Instalacja IrfanView ukończona."
-	Start-Process -FilePath $app
+Start-Process -FilePath $app
