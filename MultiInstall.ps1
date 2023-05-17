@@ -26,7 +26,7 @@ function Show-Menu {
     Write-Host "`n0. Exit"
 
     do {
-        $choice = Read-Host "`nEnter your choice"
+        $choice = Read-Host "`nWybór:"
     } while (![int]::TryParse($choice, [ref]$null) -or $choice -lt 0 -or $choice -gt $Options.Length)
 
     return $choice
@@ -34,13 +34,13 @@ function Show-Menu {
 
 # Przykładowe opcje menu
 $options = @(
-    "1.Instaluj Chrome",
-    "2.Instaluj WinRAR",
-    "3.Instaluj IrfanView",
-    "4.Instaluj K-Lite Codec Pack Mega",
-	"5.Instaluj Adobe Acrobat Reader DC",
-    "6.Instaluj wszystko",
-	"0.Zamknij"
+    "Instaluj Chrome",
+    "Instaluj WinRAR",
+    "Instaluj IrfanView",
+    "Instaluj K-Lite Codec Pack Mega",
+    "Instaluj Adobe Acrobat Reader DC",
+    "Instaluj wszystko",
+    "Zamknij"
 )
 
 do {
