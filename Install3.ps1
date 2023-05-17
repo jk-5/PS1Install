@@ -2,6 +2,8 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+cls
+
 # Definicja zmiennych
 $irfanviewUrl = "https://download.instalki.org/programy/Windows/Grafika/przegladarki_grafiki/iview462_x64_setup.exe"
 $pluginsUrl = "http://www.storage.programosy.pl/iview462_plugins_x64_setup.exe"
