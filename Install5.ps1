@@ -8,7 +8,7 @@ $installDir = "C:\Program Files\Adobe\Acrobat DC\Acrobat"
 $app = "C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
 
 # Pobieranie i instalacja Adobe Acrobat Reader DC
-Write-Host "Instalacja acrordr."
+Write-Host "Instalacja Adobe Acrobat Reader DC."
 $acrordrInstaller = "$env:TEMP\acrobat_reader_dc_setup.exe"
 Invoke-WebRequest -Uri $acrordrUrl -OutFile $acrordrInstaller
 Start-Process -FilePath $acrordrInstaller -Wait
