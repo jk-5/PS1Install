@@ -2,6 +2,8 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+cls
+
 # Definicja zmiennych
 $klitecodecpackUrl = "https://files3.codecguide.com/K-Lite_Codec_Pack_1760_Mega.exe"
 $installDir = "C:\Program Files (x86)\K-Lite Codec Pack"
