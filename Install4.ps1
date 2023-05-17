@@ -9,7 +9,7 @@ $app = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 # Pobieranie i instalacja Chrome
 Write-Host "Instalacja Chrome."
-$chromeInstaller = "$env:TEMP\irfanview_setup.exe"
+$chromeInstaller = "$env:TEMP\chrome_setup.exe"
 Invoke-WebRequest -Uri $chromeUrl -OutFile $chromeInstaller
 Start-Process -FilePath $chromeInstaller -Wait
 Remove-Item -Path $chromeInstaller
