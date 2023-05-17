@@ -24,6 +24,6 @@ Add-content "C:\Program Files\WinRAR\rarreg.key" 'aef69d48c864bcd72d15163897773d
 
 cls
 
-[Console]::WriteLine("WinRar activated successful.")
+Write-Host "WinRAR został pomyślnie aktywowany."
 
 Start-Process -FilePath $app
