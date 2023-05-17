@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$winrarUrl = "https://www.rarlab.com/rar/winrar-x64-621pl.exe"
+$winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-621pl.exe"
 $installerPath = "$env:TEMP\winrar_installer.exe"
 
 # Pobieranie instalatora WinRAR
@@ -32,10 +32,13 @@ try {
 	Add-content "C:\Program Files\WinRAR\rarreg.key" '982fbe71e93df6b6346c37a3890f3c7edc65d7f5455470d13d1190'
 	Add-content "C:\Program Files\WinRAR\rarreg.key" '6e6fb824bcf25f155547b5fc41901ad58c0992f570be1cf5608ba9'
 	Add-content "C:\Program Files\WinRAR\rarreg.key" 'aef69d48c864bcd72d15163897773d314187f6a9af350808719796'
-    Write-Host "WinRAR został pomyślnie aktywowany."
+	
+	cls
+	
+    	Write-Host "WinRAR został pomyślnie aktywowany."
 	}
 catch {
-    Write-Host "Wystąpił błąd podczas aktywacji WinRAR: $_"
+    	Write-Host "Wystąpił błąd podczas aktywacji WinRAR: $_"
 	}
 
 # Usuwanie pliku instalatora
