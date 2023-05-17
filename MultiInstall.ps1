@@ -23,7 +23,7 @@ function Show-Menu {
         Write-Host "$($i + 1). $($Options[$i])"
     }
 
-    Write-Host "`n0. Exit"
+    Write-Host "`n0. Zamknij"
 
     do {
         $choice = Read-Host "`nWybór"
@@ -39,8 +39,7 @@ $options = @(
     "Instaluj IrfanView",
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj wszystko",
-    "Zamknij"
+    "Instaluj wszystko"
 )
 
 do {
