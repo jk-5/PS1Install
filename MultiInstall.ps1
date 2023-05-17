@@ -44,7 +44,7 @@ $options = @(
 )
 
 do {
-    $choice = Show-Menu -Title "Menu" -Options $options
+    $choice = Show-Menu -Title "Multi Installer by J.K" -Options $options
 
     switch ($choice) {
         1 {
