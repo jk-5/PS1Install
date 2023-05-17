@@ -39,7 +39,9 @@ $options = @(
     "Instaluj IrfanView",
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj wszystko"
+    "Instaluj wszystko",
+    "Aktywacja Windows",
+    "Aktywacja Office 2019/2021"
 )
 
 do {
@@ -69,6 +71,18 @@ do {
 		6 {
             Write-Host "Instalacja wszystkiego"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
+        }
+		7 {
+            Write-Host "Aktywacja Windows"
+            irm https://massgrave.dev/get | iex
+        }
+		8 {
+            Write-Host "Aktywacja Office 2019/2021"
+	    $aioUrl = "https://raw.githubusercontent.com/abbodi1406/KMS_VL_ALL_AIO/master/KMS_VL_ALL_AIO.cmd"
+            $aioInstaller = "$env:TEMP\ALL_AIO.cmd"
+	    Invoke-WebRequest -Uri $aioUrl -OutFile $aioInstaller
+	    Start-Process -FilePath $aioInstaller -Wait
+	    Remove-Item -Path $aioInstaller
         }
         0 {
             Write-Host "Zamykanie programu..."
