@@ -7,7 +7,7 @@ $irfanviewUrl = "https://download.instalki.org/programy/Windows/Grafika/przeglad
 $pluginsUrl = "http://www.storage.programosy.pl/iview462_plugins_x64_setup.exe"
 $langUrl = "https://www.irfanview.net/lang/irfanview_lang_polski.exe"
 $installDir = "C:\Program Files\IrfanView"
-$app = ""C:\Program Files\IrfanView\i_view64.exe""
+$app = "C:\Program Files\IrfanView\i_view64.exe"
 
 # Pobieranie i instalacja IrfanView
 Write-Host "Instalacja IrfanView 1/3."
