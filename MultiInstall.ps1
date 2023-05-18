@@ -23,7 +23,7 @@ function Show-Menu {
         Write-Host "$($i + 1). $($Options[$i])"
     }
 
-    Write-Host "`n0. Zamknij"
+    Write-Host "`n0. Zamknij`n"
     Write-Host "====== $Title ======`n"
     do {
         $choice = Read-Host "`nWybierz"
