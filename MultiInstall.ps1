@@ -39,7 +39,7 @@ $options = @(
     "Instaluj IrfanView",
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj wszystko",
+    "Instaluj wszystkie programy (1-5)",
     "Instaluj SpotX (modyfikowany Spotify)",
     "Aktywacja Windows",
     "Aktywacja Office 2019/2021"
@@ -70,7 +70,7 @@ do {
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Install5.ps1 | iex
         }
 		6 {
-            Write-Host "Instalacja wszystkiego"
+            Write-Host "Instalacja wszystkich programów (1-5)"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
         }
 		7 {
