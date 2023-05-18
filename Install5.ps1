@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$acrordrUrl = "https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2300120064/AcroRdrDC2300120064_pl_PL.exe"
+$acrordrUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/readerdc64_pl_ha_crd_mdr_install.exe"
 $installDir = "C:\Program Files\Adobe\Acrobat DC\Acrobat"
 $app = "C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
 
