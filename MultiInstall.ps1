@@ -40,6 +40,7 @@ $options = @(
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
     "Instaluj wszystko",
+    "Instaluj SpotX (modyfikowany Spotify)",
     "Aktywacja Windows",
     "Aktywacja Office 2019/2021"
 )
@@ -73,10 +74,18 @@ do {
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
         }
 		7 {
+            Write-Host "Instaluj SpotX (modyfikowany Spotify)"
+	    $spotxUrl = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/Install_Auto.bat"
+            $spotxInstaller = "$env:TEMP\spotx.cmd"
+	    Invoke-WebRequest -Uri $spotxUrl -OutFile $spotxInstaller
+	    Start-Process -FilePath $spotxInstaller -Wait
+	    Remove-Item -Path $spotxInstaller
+        }
+		8 {
             Write-Host "Aktywacja Windows"
             irm https://massgrave.dev/get | iex
         }
-		8 {
+		9 {
             Write-Host "Aktywacja Office 2019/2021"
 	    $aioUrl = "https://raw.githubusercontent.com/abbodi1406/KMS_VL_ALL_AIO/master/KMS_VL_ALL_AIO.cmd"
             $aioInstaller = "$env:TEMP\ALL_AIO.cmd"
