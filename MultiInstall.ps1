@@ -17,14 +17,14 @@ function Show-Menu {
 
     Clear-Host
 
-    Write-Host "=== $Title ===`n"
+    Write-Host "====== $Title ======`n"
 
     for ($i = 0; $i -lt $Options.Length; $i++) {
         Write-Host "$($i + 1). $($Options[$i])"
     }
 
     Write-Host "`n0. Zamknij"
-
+    Write-Host "====== $Title ======`n"
     do {
         $choice = Read-Host "`nWybierz"
     } while (![int]::TryParse($choice, [ref]$null) -or $choice -lt 0 -or $choice -gt $Options.Length)
