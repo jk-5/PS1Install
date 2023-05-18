@@ -26,7 +26,7 @@ function Show-Menu {
     Write-Host "`n0. Zamknij`n"
     Write-Host "====== $Title ======`n"
     do {
-        $choice = Read-Host "`nWybierz"
+        $choice = Read-Host "Wybierz"
     } while (![int]::TryParse($choice, [ref]$null) -or $choice -lt 0 -or $choice -gt $Options.Length)
 
     return $choice
