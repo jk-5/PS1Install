@@ -32,7 +32,7 @@ function Show-Menu {
     return $choice
 }
 
-# Przykładowe opcje menu
+# Opcje menu
 $options = @(
     "Instaluj Chrome",
     "Instaluj WinRAR",
