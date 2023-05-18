@@ -17,7 +17,7 @@ Start-Process -FilePath $acrordrInstaller -Wait
 
 if (Test-Path -Path $acrordrInstaller -PathType Leaf) {
 Remove-Item -Path $acrordrInstaller
-]
+}
 
 # Uruchomienie Adobe Acrobat Reader DC
 cls
