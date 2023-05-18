@@ -14,7 +14,11 @@ Write-Host "Instalacja Adobe Acrobat Reader DC."
 $acrordrInstaller = "$env:TEMP\acrobat_reader_dc_setup.exe"
 Invoke-WebRequest -Uri $acrordrUrl -OutFile $acrordrInstaller
 Start-Process -FilePath $acrordrInstaller -Wait
-Remove-Item -Path $acrordrInstaller
+try {
+    Remove-Item -Path $acrordrInstaller
+    }
+catch {
+	}
 
 # Uruchomienie Adobe Acrobat Reader DC
 cls
