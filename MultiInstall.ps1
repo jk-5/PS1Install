@@ -100,7 +100,7 @@ do {
 
     if ($choice -ne 0) {
         # Dodaj opóźnienie, aby użytkownik mógł zobaczyć wynik i powrót do menu
-        Start-Sleep -Seconds 3
+        Start-Sleep -Seconds 2
     }
 
 } while ($choice -ne 0)
