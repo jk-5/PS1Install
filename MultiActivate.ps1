@@ -56,6 +56,7 @@ do {
         }
         0 {
             Write-Host "Zamykanie programu..."
+	    return
         }
     }
 
