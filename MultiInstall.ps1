@@ -40,7 +40,7 @@ $options = @(
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
     "Instaluj wszystkie programy (1-5)",
-	"Instaluj TeamViewer"
+    "Instaluj TeamViewer",
     "Instaluj SpotX (modyfikowany Spotify)",
     "Aktywacja Windows",
     "Aktywacja Office 2019/2021"
@@ -62,23 +62,23 @@ do {
             Write-Host "Instalacja IrfanView"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
         }
-		4 {
+	4 {
             Write-Host "Instalacja K-Lite Codec Pack Mega"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
         }
-		5 {
+	5 {
             Write-Host "Instalacja Adobe Acrobat Reader DC"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
         }
-		6 {
+	6 {
             Write-Host "Instalacja TeamViewer."
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
         }
-		7 {
+	7 {
             Write-Host "Instalacja wszystkich programów (1-5)"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
         }
-		8 {
+	8 {
             Write-Host "Instaluj SpotX (modyfikowany Spotify)"
 	    $spotxUrl = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/Install_Auto.bat"
             $spotxInstaller = "$env:TEMP\spotx.cmd"
@@ -86,11 +86,11 @@ do {
 	    Start-Process -FilePath $spotxInstaller -Wait
 	    Remove-Item -Path $spotxInstaller
         }
-		9 {
+	9 {
             Write-Host "Aktywacja Windows"
             irm https://massgrave.dev/get | iex
         }
-		10 {
+	10 {
             Write-Host "Aktywacja Office 2019/2021"
 	    $aioUrl = "https://raw.githubusercontent.com/abbodi1406/KMS_VL_ALL_AIO/master/KMS_VL_ALL_AIO.cmd"
             $aioInstaller = "$env:TEMP\ALL_AIO.cmd"
