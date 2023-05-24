@@ -39,7 +39,7 @@ $options = @(
     "Instaluj IrfanView",
     "Instaluj K-Lite Codec Pack Mega",
     "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj wszystkie programy (1-5)",
+    "Instaluj podstawowe programy (1-5)",
     "Instaluj TeamViewer",
     "Instaluj SpotX (modyfikowany Spotify)",
     "Aktywatory"
@@ -74,7 +74,7 @@ do {
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
         }
 	    7 {
-            Write-Host "Instalacja wszystkich programów (1-5)"
+            Write-Host "Instalacja podstawowych programów (1-5)"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
         }
 	    8 {
