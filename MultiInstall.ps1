@@ -61,23 +61,23 @@ do {
             Write-Host "Instalacja IrfanView"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
         }
-	    4 {
+	4 {
             Write-Host "Instalacja K-Lite Codec Pack Mega"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
         }
-	    5 {
+	5 {
             Write-Host "Instalacja Adobe Acrobat Reader DC"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
         }
-	    6 {
+	6 {
+	    Write-Host "Instalacja podstawowych programów (1-5)"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex   
+        }
+	7 {
             Write-Host "Instalacja TeamViewer."
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
         }
-	    7 {
-            Write-Host "Instalacja podstawowych programów (1-5)"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
-        }
-	    8 {
+	8 {
             Write-Host "Instaluj SpotX (modyfikowany Spotify)"
 	    $spotxUrl = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/Install_Auto.bat"
             $spotxInstaller = "$env:TEMP\spotx.cmd"
@@ -85,10 +85,11 @@ do {
 	    Start-Process -FilePath $spotxInstaller -Wait
 	    Remove-Item -Path $spotxInstaller
         }
-	    9 {
+	9 {
+	    Write-Host "Aktywatory."
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiActivate.ps1 | iex
         }
-	    0 {
+	0 {
             Write-Host "Zamykanie programu..."
         }
     }
