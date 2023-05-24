@@ -12,7 +12,7 @@ $app = "C:\Program Files\TeamViewer\TeamViewer.exe"
 # Pobieranie i instalacja TeamViewer
 Write-Host "Instalacja TeamViewer."
 $teamviewerInstaller = "$env:TEMP\teamviewer_setup.exe"
-Invoke-WebRequest -Uri $chromeUrl -OutFile $teamviewerInstaller
+Invoke-WebRequest -Uri $teamviewerUrl -OutFile $teamviewerInstaller
 Start-Process -FilePath $teamviewerInstaller -Wait
 Remove-Item -Path $teamviewerInstaller
 Set-ItemProperty -Path "HKCU:\SOFTWARE\TeamViewer" -Name "UIVersion" -Value 2
