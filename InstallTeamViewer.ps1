@@ -15,7 +15,11 @@ $teamviewerInstaller = "$env:TEMP\teamviewer_setup.exe"
 Invoke-WebRequest -Uri $teamviewerUrl -OutFile $teamviewerInstaller
 Start-Process -FilePath $teamviewerInstaller -Wait
 Remove-Item -Path $teamviewerInstaller
+
+# Zmiana interfejscu na klasyczny
 Set-ItemProperty -Path "HKCU:\SOFTWARE\TeamViewer" -Name "UIVersion" -Value 2
+
 # Uruchomienie TeamViewer
 cls
 Write-Host "Instalacja TeamViewer ukończona."
+Start-Process -FilePath $app
