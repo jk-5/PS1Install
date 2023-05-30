@@ -79,11 +79,7 @@ do {
         }
 	8 {
             Write-Host "Instaluj SpotX (modyfikowany Spotify)"
-	    $spotxUrl = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/Install_Auto.bat"
-            $spotxInstaller = "$env:TEMP\spotx.cmd"
-	    Invoke-WebRequest -Uri $spotxUrl -OutFile $spotxInstaller
-	    Start-Process -FilePath $spotxInstaller -Wait
-	    Remove-Item -Path $spotxInstaller
+	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
         }
 	9 {
 	    Write-Host "Aktywatory."
