@@ -4,95 +4,13 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-function Show-Menu {
-    param (
-        [Parameter(Position = 0, Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$Title,
+$multiUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Multi_Installer.exe"
 
-        [Parameter(Position = 1, Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
-        [string[]]$Options
-    )
+$multiInstaller = "$env:TEMP\Multi_Installer.exe"
+Invoke-WebRequest -Uri $multiUrl -OutFile $multiInstaller
+Start-Process -FilePath $multiInstaller -Wait
 
-    Clear-Host
-
-    Write-Host "====== $Title ======`n"
-
-    for ($i = 0; $i -lt $Options.Length; $i++) {
-        Write-Host "$($i + 1). $($Options[$i])"
-    }
-
-    Write-Host "`n0. Zamknij`n"
-    Write-Host "====== $Title ======`n"
-    do {
-        $choice = Read-Host "Wybierz"
-    } while (![int]::TryParse($choice, [ref]$null) -or $choice -lt 0 -or $choice -gt $Options.Length)
-
-    return $choice
+if (Test-Path -Path $multiInstaller -PathType Leaf) {
+Remove-Item -Path $multiInstaller
 }
-
-# Opcje menu
-$options = @(
-    "Instaluj Chrome",
-    "Instaluj WinRAR",
-    "Instaluj IrfanView",
-    "Instaluj K-Lite Codec Pack Mega",
-    "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj podstawowe programy (1-5)",
-    "Instaluj TeamViewer",
-    "Instaluj SpotX (modyfikowany Spotify)",
-    "Aktywatory"
-)
-
-do {
-    $choice = Show-Menu -Title "Multi Installer by J.K" -Options $options
-
-    switch ($choice) {
-        1 {
-            Write-Host "Instalacja Chrome"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallChrome.ps1 | iex
-        }
-        2 {
-            Write-Host "Instalacja WinRar"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallWinRAR.ps1 | iex
-        }
-        3 {
-            Write-Host "Instalacja IrfanView"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
-        }
-	4 {
-            Write-Host "Instalacja K-Lite Codec Pack Mega"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
-        }
-	5 {
-            Write-Host "Instalacja Adobe Acrobat Reader DC"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
-        }
-	6 {
-	    Write-Host "Instalacja podstawowych programów (1-5)"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex   
-        }
-	7 {
-            Write-Host "Instalacja TeamViewer."
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
-        }
-	8 {
-            Write-Host "Instaluj SpotX (modyfikowany Spotify)"
-	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
-        }
-	9 {
-	    Write-Host "Aktywatory."
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiActivate.ps1 | iex
-        }
-	0 {
-            Write-Host "Zamykanie programu..."
-        }
-    }
-
-    if ($choice -ne 0) {
-        # Dodaj opóźnienie, aby użytkownik mógł zobaczyć wynik i powrót do menu
-        Start-Sleep -Seconds 2
-    }
-
-} while ($choice -ne 0)
+cls
