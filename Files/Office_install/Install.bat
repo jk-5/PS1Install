@@ -1,2 +1,2 @@
 @echo off
-setup.exe /configure "Configuration.xml"
+office_setup.exe /configure "Configuration.xml"
