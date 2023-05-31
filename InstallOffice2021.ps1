@@ -23,7 +23,7 @@ Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
 
 # Pobieranie i instalacja pakietu Microsoft Office 2021 Professional Plus x64
 Write-Host "Instalacja Microsoft Office 2021 Professional Plus x64"
-$setupInstaller = "$env:TEMP\Install.bat"
+$setupInstaller = "$env:TEMP\Install.cmd"
 Invoke-WebRequest -Uri $setupUrl -OutFile $setupInstaller
 Start-Process -FilePath $setupInstaller -Wait
 
