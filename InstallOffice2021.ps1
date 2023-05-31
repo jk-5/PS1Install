@@ -12,13 +12,13 @@ $installDir = "C:\Program Files\Microsoft Office"
 $app = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 
 # Pobieranie pliku konfiguracyjnego
-Write-Host "Pobieranie pliku konfiguracyjnego"
-$officeInstaller = "$env:TEMP\Configuration.xml"
+Write-Host "Pobieranie instalatora"
+$officeInstaller = "$env:TEMP\office_setup.exe"
 Invoke-WebRequest -Uri $officeUrl -OutFile $officeInstaller
 
 # Pobieranie instalatora pakietu Microsoft Office 2021 Professional Plus x64
-Write-Host "Pobieranie instalatora"
-$configurationInstaller = "$env:TEMP\office_setup.exe"
+Write-Host "Pobieranie pliku konfiguracyjnego"
+$configurationInstaller = "$env:TEMP\Configuration.xml"
 Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
 
 # Pobieranie i instalacja pakietu Microsoft Office 2021 Professional Plus x64
