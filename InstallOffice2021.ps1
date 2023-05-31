@@ -11,12 +11,12 @@ $setupUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Office
 $installDir = "C:\Program Files\Microsoft Office"
 $app = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 
-# Pobieranie pliku konfiguracyjnego
+# Pobieranie instalatora pakietu Microsoft Office 2021 Professional Plus x64
 Write-Host "Pobieranie instalatora"
 $officeInstaller = "$env:TEMP\office_setup.exe"
 Invoke-WebRequest -Uri $officeUrl -OutFile $officeInstaller
 
-# Pobieranie instalatora pakietu Microsoft Office 2021 Professional Plus x64
+# Pobieranie pliku konfiguracyjnego
 Write-Host "Pobieranie pliku konfiguracyjnego"
 $configurationInstaller = "$env:TEMP\Configuration.xml"
 Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
