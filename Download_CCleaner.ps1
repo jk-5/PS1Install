@@ -4,10 +4,8 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-# Definicja zmiennych
 $ccleanerUrl = "https://download.ccleaner.com/portable/ccsetup612.zip"
 
-# Pobieranie ccleaner Tweaker
 Write-Host "Pobieranie CCleaner Portable."
 $ccleanerInstaller = "$env:TEMP\ccleaner_portable.zip"
 Invoke-WebRequest -Uri $ccleanerUrl -OutFile $ccleanerInstaller
@@ -16,6 +14,5 @@ $destinationPath = Join-Path -Path $desktopPath -ChildPath "\ccleaner_portable.z
 Copy-Item -Path $ccleanerInstaller -Destination $destinationPath
 Remove-Item -Path $ccleanerInstaller
 
-# Uruchomienie ccleaner
 cls
 Write-Host "Pobieranie CCleaner Portable ukończone. Plik znajdziesz na pulpicie."
