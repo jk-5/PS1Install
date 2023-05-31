@@ -4,9 +4,9 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$url = "https://winaerotweaker.com/download/winaerotweaker.zip"  # Adres URL pliku do pobrania
+$url = "https://dl.google.com/chrome/install/latest/chrome_installer.exe"  # Adres URL pliku do pobrania
 $desktopPath = [Environment]::GetFolderPath("Desktop")
-$destination = "$desktopPath\winaerotweaker.zip"
+$destination = "$desktopPath\chrome.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $destination
 
