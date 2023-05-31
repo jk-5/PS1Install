@@ -3,12 +3,9 @@ $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 cls
-try {
-        wevtutil.exe cl "Microsoft-Windows-Windows Defender/Operational" -ErrorAction Stop
-        Remove-Item -Path "C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service" -Recurse -Force -ErrorAction Stop
-        Write-Host "Usunięto historię skanowania Windows Defender."
-    }
-    catch {
-        Write-Host "Wystąpił błąd podczas usuwania historii skanowania Windows Defender:"
-    }
 
+$defenderUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Clear_Windows_Defender_History.cmd"
+$defenderInstaller = "$env:TEMP\defender.cmd"
+Invoke-WebRequest -Uri $defenderUrl -OutFile $defenderInstaller
+Start-Process -FilePath $defenderInstaller -Wait
+Remove-Item -Path $defenderInstaller
