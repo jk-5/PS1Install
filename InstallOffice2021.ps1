@@ -23,5 +23,11 @@ Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
 # Instalacja
 Write-Host "Instalacja pakietu Microsoft Office 2021 Professional Plus x64"
 Start-Process -FilePath $officeInstaller -ArgumentList "/configure `"$env:TEMP\Configuration.xml`"" -Wait
-cls
 
+Remove-Item -Path $officeInstaller
+Remove-Item -Path $configurationInstaller
+
+# Uruchomienie IrfanView
+cls
+Write-Host "Instalacja pakietu Microsoft Office 2021 Professional Plus x64 ukończona."
+Start-Process -FilePath $app
