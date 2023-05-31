@@ -19,8 +19,8 @@ Invoke-WebRequest -Uri $officeUrl -OutFile $officeInstaller
 Write-Host "Instalacja Microsoft Office 2021 Professional Plus x64"
 $configurationInstaller = "$env:TEMP\office_setup.exe"
 Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
-$configurationInstaller2 = "$env:TEMP\office_setup.exe /configure Configuration.xml"
-Start-Process -FilePath $configurationInstaller2 -Wait
+$parameters = "/configure Configuration.xml"
+Start-Process -FilePath $configurationInstaller -ArgumentList $parameters -Wait
 Remove-Item -Path $officeInstaller
 Remove-Item -Path $configurationInstaller
 
