@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 $spotxUrl = "https://raw.githubusercontent.com/amd64fox/SpotX/main/scripts/Install_Auto.bat"
-            $spotxInstaller = "$env:TEMP\spotx.cmd"
-			Invoke-WebRequest -Uri $spotxUrl -OutFile $spotxInstaller
-			Start-Process -FilePath $spotxInstaller -Wait
-			Remove-Item -Path $spotxInstaller
+$spotxInstaller = "$env:TEMP\spotx.cmd"
+Invoke-WebRequest -Uri $spotxUrl -OutFile $spotxInstaller
+Start-Process -FilePath $spotxInstaller -Wait
+Remove-Item -Path $spotxInstaller
