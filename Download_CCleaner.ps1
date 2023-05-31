@@ -8,7 +8,7 @@ cls
 $ccleanerUrl = "https://download.ccleaner.com/portable/ccsetup612.zip"
 
 # Pobieranie ccleaner Tweaker
-Write-Host "Pobieranie CCleaner."
+Write-Host "Pobieranie CCleaner Portable."
 $ccleanerInstaller = "$env:TEMP\ccleaner_portable.zip"
 Invoke-WebRequest -Uri $ccleanerUrl -OutFile $ccleanerInstaller
 $destinationPath = Join-Path [Environment]::GetFolderPath("Desktop") "\\ccleaner_portable.zip"
