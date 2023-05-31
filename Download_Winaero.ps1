@@ -8,8 +8,7 @@ $url = "https://winaero.com/downloads/winaerotweaker.zip"  # Adres URL pliku do 
 $desktopPath = [Environment]::GetFolderPath("Desktop")
 $destination = Join-Path $desktopPath "winaerotweaker.zip"
 
-$wc = New-Object System.Net.WebClient
-$wc.DownloadFile($url, $destination)
+Invoke-WebRequest -Uri $url -OutFile $destination
 
 cls
 Write-Host "Pobrano plik i zapisano na pulpicie."
