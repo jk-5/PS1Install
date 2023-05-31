@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$url = "https://winaero.com/downloads/winaerotweaker.zip"  # Adres URL pliku do pobrania
+$url = "https://winaerotweaker.com/download/winaerotweaker.zip"  # Adres URL pliku do pobrania
 $desktopPath = [Environment]::GetFolderPath("Desktop")
 $destination = "$desktopPath\winaerotweaker.zip"
 
