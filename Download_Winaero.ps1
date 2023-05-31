@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 $url = "https://winaero.com/downloads/winaerotweaker.zip"  # Adres URL pliku do pobrania
-$desktopPath = [Environment]::GetFolderPath("Desktop")
+$desktopPath = [Environment]::GetFolderPath("DesktopDirectory")
 $destination = Join-Path $desktopPath "winaerotweaker.zip"
 
 Invoke-WebRequest -Uri $url -OutFile $destination
