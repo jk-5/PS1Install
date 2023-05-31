@@ -4,13 +4,12 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-# Definicja zmiennych
-$WinaeroUrl = "https://winaero.com/downloads/winaerotweaker.zip"
+$url = "https://winaero.com/downloads/winaerotweaker.zip"  # Adres URL pliku do pobrania
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$destination = Join-Path $desktopPath "winaerotweaker.zip"
 
-# Pobieranie Winaero Tweaker
-Write-Host "Pobieranie Winaero Tweaker."
-$WinaeroInstaller = "$env:USERPROFILE\Desktop\winaerotweaker.zip"
-Invoke-WebRequest -Uri $WinaeroUrl -OutFile $WinaeroInstaller
+$wc = New-Object System.Net.WebClient
+$wc.DownloadFile($url, $destination)
 
 cls
-Write-Host "Pobrano Winaero Tweaker. Plik znajdziesz na pulpicie."
+Write-Host "Pobrano plik i zapisano na pulpicie."
