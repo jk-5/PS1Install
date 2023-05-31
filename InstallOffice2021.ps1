@@ -27,10 +27,6 @@ $setupInstaller = "$env:TEMP\Install.cmd"
 Invoke-WebRequest -Uri $setupUrl -OutFile $setupInstaller
 Start-Process -FilePath $setupInstaller -Wait
 
-Remove-Item -Path $officeInstaller
-Remove-Item -Path $configurationInstaller
-Remove-Item -Path $installInstaller
-
 # Uruchomienie Microsoft Office 2021 Professional Plus x64
 cls
 Write-Host "Instalacja Microsoft Office 2021 Professional Plus x64 ukończona."
