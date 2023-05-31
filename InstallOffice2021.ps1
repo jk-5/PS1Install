@@ -7,6 +7,7 @@ cls
 # Definicja zmiennych
 $officeUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Office_install/setup.exe"
 $configurationUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Office_install/Configuration.xml"
+$setupUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Office_install/Install.bat"
 $installDir = "C:\Program Files\Microsoft Office"
 $app = "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
 
@@ -15,14 +16,20 @@ Write-Host "Pobieranie pliku konfiguracyjnego"
 $officeInstaller = "$env:TEMP\Configuration.xml"
 Invoke-WebRequest -Uri $officeUrl -OutFile $officeInstaller
 
-# Pobieranie i instalacja pakietu Microsoft Office 2021 Professional Plus x64
-Write-Host "Instalacja Microsoft Office 2021 Professional Plus x64"
+# Pobieranie instalatora pakietu Microsoft Office 2021 Professional Plus x64
+Write-Host "Pobieranie instalatora"
 $configurationInstaller = "$env:TEMP\office_setup.exe"
 Invoke-WebRequest -Uri $configurationUrl -OutFile $configurationInstaller
-$parameters = "/configure $env:TEMP\Configuration.xml"
-Start-Process -FilePath $configurationInstaller -ArgumentList $parameters -Wait
+
+# Pobieranie i instalacja pakietu Microsoft Office 2021 Professional Plus x64
+Write-Host "Instalacja Microsoft Office 2021 Professional Plus x64"
+$setupInstaller = "$env:TEMP\Install.bat"
+Invoke-WebRequest -Uri $installUrl -OutFile $installInstaller
+Start-Process -FilePath $installInstaller -Wait
+
 Remove-Item -Path $officeInstaller
 Remove-Item -Path $configurationInstaller
+Remove-Item -Path $installInstaller
 
 # Uruchomienie Microsoft Office 2021 Professional Plus x64
 cls
