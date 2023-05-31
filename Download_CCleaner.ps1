@@ -11,7 +11,7 @@ $ccleanerUrl = "https://download.ccleaner.com/portable/ccsetup612.zip"
 Write-Host "Pobieranie CCleaner."
 $ccleanerInstaller = "$env:TEMP\ccleaner_portable.zip"
 Invoke-WebRequest -Uri $ccleanerUrl -OutFile $ccleanerInstaller
-$destinationPath = Join-Path [Environment]::GetFolderPath("Desktop") "\ccleaner_portable.zip"
+$destinationPath = Join-Path [Environment]::GetFolderPath("Desktop") "\\ccleaner_portable.zip"
 Copy-Item -Path $ccleanerInstaller -Destination $destinationPath
 Remove-Item -Path $ccleanerInstaller
 
