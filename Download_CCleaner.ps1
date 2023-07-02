@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$ccleanerUrl = "https://download.ccleaner.com/portable/ccsetup612.zip"
+$ccleanerUrl = "https://download.ccleaner.com/portable/ccsetup613.zip"
 
 Write-Host "Pobieranie CCleaner Portable."
 $ccleanerInstaller = "$env:TEMP\ccleaner_portable.zip"
