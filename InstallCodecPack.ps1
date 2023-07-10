@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$klitecodecpackUrl = "https://files3.codecguide.com/K-Lite_Codec_Pack_1766_Mega.exe"
+$klitecodecpackUrl = "https://files3.codecguide.com/K-Lite_Codec_Pack_1768_Mega.exe"
 $installDir = "C:\Program Files (x86)\K-Lite Codec Pack"
 $app = "C:\Program Files (x86)\K-Lite Codec Pack\MPC-HC64\mpc-hc64.exe"
 
