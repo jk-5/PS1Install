@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-623pl.exe"
+$winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-624pl.exe"
 $file = "C:\Program Files\WinRAR\rarreg.key"
 $app = "C:\Program Files\WinRAR\WinRAR.exe"
 
