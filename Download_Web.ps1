@@ -9,7 +9,9 @@ $webUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/web.html
 Write-Host "Pobieranie strony testowej."
 $webInstaller = "$env:TEMP\web.html"
 Invoke-WebRequest -Uri $webUrl -OutFile $webInstaller
-Start-Process -FilePath $webInstaller -Wait
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$destinationPath = Join-Path -Path $desktopPath -ChildPath "\web.html"
+Copy-Item -Path $webInstaller -Destination $destinationPath
 Remove-Item -Path $webInstaller
 
 cls
