@@ -9,7 +9,9 @@ $imageUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/image.
 Write-Host "Pobieranie grafiki testowej."
 $imageInstaller = "$env:TEMP\image.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imageInstaller
-Start-Process -FilePath $imageInstaller -Wait
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$destinationPath = Join-Path -Path $desktopPath -ChildPath "\image.jpg"
+Copy-Item -Path $imageInstaller -Destination $destinationPath
 Remove-Item -Path $imageInstaller
 
 cls
