@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odliczanie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #counter {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Strona testowa, zaraz zostaniesz przekierowany na stronę główną</h1>
+<div id="counter">5</div>
+
+<script>
+    // Funkcja odliczająca
+    function countdown() {
+        var counterElement = document.getElementById('counter');
+        var count = parseInt(counterElement.innerHTML);
+
+        // Zmniejsz licznik o 1 co sekundę
+        var countdownInterval = setInterval(function() {
+            count--;
+
+            // Aktualizuj widoczny licznik
+            counterElement.innerHTML = count;
+
+            // Sprawdź, czy odliczanie zakończone
+            if (count <= 0) {
+                // Przenieś użytkownika na nową stronę
+                window.location.href = 'https://jkserwis.wordpress.com/';
+                // Wyczyść interwał odliczania
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+    }
+
+    // Uruchom odliczanie po załadowaniu strony
+    document.addEventListener('DOMContentLoaded', function() {
+        countdown();
+    });
+</script>
+
+</body>
+</html>
