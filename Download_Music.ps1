@@ -9,7 +9,9 @@ $musicUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/music.
 Write-Host "Pobieranie muzyki testowej."
 $musicInstaller = "$env:TEMP\music.mp3"
 Invoke-WebRequest -Uri $musicUrl -OutFile $musicInstaller
-Start-Process -FilePath $musicInstaller -Wait
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$destinationPath = Join-Path -Path $desktopPath -ChildPath "\music.mp3"
+Copy-Item -Path $musicInstaller -Destination $destinationPath
 Remove-Item -Path $musicInstaller
 
 cls
