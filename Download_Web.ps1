@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$webUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Web.html"
+$webUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/web.html"
 
 Write-Host "Pobieranie strony testowej."
 $webInstaller = "$env:TEMP\web.html"
