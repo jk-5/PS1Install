@@ -7,5 +7,7 @@ cls
 $defenderUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/Clear_Windows_Defender_History.cmd"
 $defenderInstaller = "$env:TEMP\defender.cmd"
 Invoke-WebRequest -Uri $defenderUrl -OutFile $defenderInstaller
-Start-Process -FilePath $defenderInstaller -Wait
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$destinationPath = Join-Path -Path $desktopPath -ChildPath "\clear_defender.cmd"
+Copy-Item -Path $defenderInstaller -Destination $destinationPath
 Remove-Item -Path $defenderInstaller
