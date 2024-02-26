@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$winaeroUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/WinaeroTweaker-1.60.1.0-setup.exe"
+$winaeroUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/WinaeroTweaker-1.62.1.0-setup.exe"
 
 Write-Host "Pobieranie Winaero Tweaker."
 $winaeroInstaller = "$env:TEMP\winaero_setup.exe"
