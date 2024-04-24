@@ -14,4 +14,3 @@ if (Test-Path -Path $multiInstaller -PathType Leaf) {
 Remove-Item -Path $multiInstaller
 }
 cls
-exit
