@@ -135,7 +135,7 @@ function Execute-Choice {
             Write-Host "Aktywacja Windows 10/11"
             irm https://massgrave.dev/get | iex
         }
-        'h' {{
+        'h' {
             Write-Host "Aktywacja Office 2021/2023"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex
         }
