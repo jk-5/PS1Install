@@ -7,6 +7,23 @@ $ErrorActionPreference = "Stop"
 
 cls
 
+# Długość czasu animacji w sekundach
+$duration = 3
+# Czas trwania każdego kroku animacji w milisekundach
+$step = 100
+
+# Obliczenie ilości kroków na podstawie podanego czasu trwania
+$steps = $duration * 1000 / $step
+
+# Zestaw znaków używanych w animacji
+$animation = @('|', '/', '-', '\')
+
+for ($i = 0; $i -lt $steps; $i++) {
+    $frame = $i % $animation.Length
+    Write-Host -NoNewline -ForegroundColor Green "`r$($animation[$frame]) Ładowanie..."
+    Start-Sleep -Milliseconds $step
+}
+
 # Wyświetlenie menu
 function Show-Menu {
     Write-Host "╔══════════════════════════════════╗"
