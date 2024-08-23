@@ -82,6 +82,7 @@ function Execute-Choice {
 			Write-Host "------------------------------------"
             Write-Host "Instalacja Office 2021 Professional Plus" 
 			Write-Host "Do pobrania około 4GB danych."
+   			Write-Host "------------------------------------"
             $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
             if ($continue -ne 't') {
                 return  # Powrót do głównego menu
@@ -96,6 +97,7 @@ function Execute-Choice {
 			Write-Host "InfanView"
 			Write-Host "K-Lite Codec Pack Mega"
 			Write-Host "Adobe Acrobat Reader DC"
+   			Write-Host "------------------------------------"
             $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
             if ($confirm -ne 't') {
                 return  # Powrót do głównego menu
