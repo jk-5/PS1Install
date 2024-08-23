@@ -50,21 +50,46 @@ function Execute-Choice {
     )
 
     switch ($choice) {
-        '1' { Write-Host "Wybrałeś opcję 1" }
-        '2' { Write-Host "Wybrałeś opcję 2" }
-        '3' { Write-Host "Wybrałeś opcję 3" }
-        '4' { Write-Host "Wybrałeś opcję 4" }
-        '5' { Write-Host "Wybrałeś opcję 5" }
-        '6' { Write-Host "Wybrałeś opcję 6" }
-        '7' { Write-Host "Wybrałeś opcję 7" }
+        '1' {
+            Write-Host "Instalacja Google Chrome"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallChrome.ps1 | iex
+        }
+        '2' {
+            Write-Host "Instalacja WinRar"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallWinRAR.ps1 | iex
+        }
+        '3' {
+            Write-Host "Instalacja IrfanView"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
+        }
+        '4' {
+            Write-Host "Instalacja K-Lite Codec Pack Mega"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
+        }
+        '5' {
+            Write-Host "Instalacja Adobe Acrobat Reader DC"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
+        }
+        '6' {
+            Write-Host "Instalacja TeamViewer."
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
+        }
+        '7' {
+            Write-Host "Instaluj SpotX (modyfikowany Spotify)"
+	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
+        }
         '8' { 
-            Write-Host "Do pobrania około 4GB danych." 
+			Write-Host "------------------------------------"
+            Write-Host "Instalacja Office 2021 Professional Plus" 
+			Write-Host "Do pobrania około 4GB danych."
             $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
             if ($continue -ne 't') {
                 return  # Powrót do głównego menu
             }
+			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallOffice2021.ps1 | iex
         }
         '9' { 
+			Write-Host "------------------------------------"
             Write-Host "Automatyczna instalacja programów:"
 			Write-Host "Google Chrome"
 			Write-Host "WinRAR"
@@ -75,8 +100,11 @@ function Execute-Choice {
             if ($confirm -ne 't') {
                 return  # Powrót do głównego menu
             }
+			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex 
         }
-        '0' { Write-Host "Wybrałeś opcję 0" }
+        '0' { cls
+			exit
+			}
         'a' { Write-Host "Wybrałeś opcję a" }
         'b' { Write-Host "Wybrałeś opcję b" }
         'c' { Write-Host "Wybrałeś opcję c" }
