@@ -24,6 +24,10 @@ for ($i = 0; $i -lt $steps; $i++) {
     Start-Sleep -Milliseconds $step
 }
 
+$Host.UI.RawUI.ForegroundColor = 'Green'
+
+cls
+
 # Wyświetlenie menu
 function Show-Menu {
     Write-Host "╔══════════════════════════════════╗"
