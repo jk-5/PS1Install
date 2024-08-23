@@ -161,7 +161,7 @@ function Execute-Choice {
     }
     
     # Opóźnienie przed powrotem do menu
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 2
 }
 
 # Główna część skryptu
