@@ -2,97 +2,171 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+# Ustawienie kodowania na UTF-8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 cls
 
+# Wyświetlenie menu
 function Show-Menu {
-    param (
-        [Parameter(Position = 0, Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$Title,
-
-        [Parameter(Position = 1, Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
-        [string[]]$Options
-    )
-
-    Clear-Host
-
-    Write-Host "====== $Title ======`n"
-
-    for ($i = 0; $i -lt $Options.Length; $i++) {
-        Write-Host "$($i + 1). $($Options[$i])"
-    }
-
-    Write-Host "`n0. Zamknij`n"
-    Write-Host "====== $Title ======`n"
-    do {
-        $choice = Read-Host "Wybierz"
-    } while (![int]::TryParse($choice, [ref]$null) -or $choice -lt 0 -or $choice -gt $Options.Length)
-
-    return $choice
+    Write-Host "╔══════════════════════════════════╗"
+    Write-Host "║      Multi Installer by J.K      ║"
+    Write-Host "╠══════════════════════════════════╣"
+	Write-Host "╠═══════════ Podstawowe ═══════════╣"
+    Write-Host "║1. Google Chrome                  ║"
+    Write-Host "║2. WinRAR                         ║"
+    Write-Host "║3. InfanView                      ║"
+    Write-Host "║4. K-Lite Codec Pack Mega         ║"
+    Write-Host "║5. Adobe Acrobat Reader DC        ║"
+    Write-Host "║6. TeamViewer                     ║"
+    Write-Host "║7. SpotX (modyfikowany Spotify)   ║"
+    Write-Host "║8. Office 2021 Professional Plus  ║"
+    Write-Host "║9. Wszystkie podstawowe (1-5)     ║"
+    Write-Host "╠══════════ Zaawansowane ══════════║"
+    Write-Host "║a. Winaero Tweaker                ║"
+    Write-Host "║b. CCleaner                       ║"
+    Write-Host "║c. Notepad++                      ║"
+    Write-Host "║d. Menu kontekstowe pulpitu       ║"
+    Write-Host "║e. Usuń historię Windows Defender ║"
+    Write-Host "║f. Włącz ClassicUI w TeamViewer   ║"
+	Write-Host "╠═══════════ Aktywatory ═══════════║"
+	Write-Host "║g. Windows 10/11                  ║"
+    Write-Host "║h. Office 2021/2023               ║"
+    Write-Host "║i. WinRAR                         ║"
+	Write-Host "╠════ Test ustawień domyślnych ════║"
+    Write-Host "║j. Przeglądarka                   ║"
+    Write-Host "║k. Muzyka                         ║"
+    Write-Host "║l. Zdjęcia                        ║"
+    Write-Host "║m. Filmy                          ║"
+	Write-Host "╠══════════════════════════════════╣"
+	Write-Host "║0. Zamknij                        ║"
+    Write-Host "╚══════════════════════════════════╝"
 }
 
-# Opcje menu
-$options = @(
-    "Instaluj Chrome",
-    "Instaluj WinRAR",
-    "Instaluj IrfanView",
-    "Instaluj K-Lite Codec Pack Mega",
-    "Instaluj Adobe Acrobat Reader DC",
-    "Instaluj podstawowe programy (1-5)",
-    "Instaluj TeamViewer",
-    "Instaluj SpotX (modyfikowany Spotify)",
-    "Aktywatory"
-)
-
-do {
-    $choice = Show-Menu -Title "Multi Installer by J.K" -Options $options
+# Funkcja wyboru akcji
+function Execute-Choice {
+    param (
+        [string]$choice
+    )
 
     switch ($choice) {
-        1 {
-            Write-Host "Instalacja Chrome"
+        '1' {
+            Write-Host "Instalacja Google Chrome"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallChrome.ps1 | iex
         }
-        2 {
+        '2' {
             Write-Host "Instalacja WinRar"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallWinRAR.ps1 | iex
         }
-        3 {
+        '3' {
             Write-Host "Instalacja IrfanView"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
         }
-	4 {
+        '4' {
             Write-Host "Instalacja K-Lite Codec Pack Mega"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
         }
-	5 {
+        '5' {
             Write-Host "Instalacja Adobe Acrobat Reader DC"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
         }
-	6 {
-	    Write-Host "Instalacja podstawowych programów (1-5)"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex   
-        }
-	7 {
+        '6' {
             Write-Host "Instalacja TeamViewer."
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
         }
-	8 {
+        '7' {
             Write-Host "Instaluj SpotX (modyfikowany Spotify)"
 	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
         }
-	9 {
-	    Write-Host "Aktywatory."
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiActivate.ps1 | iex
+        '8' { 
+			Write-Host "------------------------------------"
+            Write-Host "Instalacja Office 2021 Professional Plus" 
+			Write-Host "Do pobrania około 4GB danych."
+            $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
+            if ($continue -ne 't') {
+                return  # Powrót do głównego menu
+            }
+			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallOffice2021.ps1 | iex
         }
-	0 {
-            Write-Host "Zamykanie programu..."
+        '9' { 
+			Write-Host "------------------------------------"
+            Write-Host "Automatyczna instalacja programów:"
+			Write-Host "Google Chrome"
+			Write-Host "WinRAR"
+			Write-Host "InfanView"
+			Write-Host "K-Lite Codec Pack Mega"
+			Write-Host "Adobe Acrobat Reader DC"
+            $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
+            if ($confirm -ne 't') {
+                return  # Powrót do głównego menu
+            }
+			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex 
         }
+        '0' { cls
+			exit
+			}
+        'a' {
+            Write-Host "Pobieranie Winaero Tweaker"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Winaero.ps1 | iex
+        }
+        'b' {
+            Write-Host "Pobieranie CCleaner"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_CCleaner.ps1 | iex
+        }
+        'c' {
+            Write-Host "Pobieranie Notepad++"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Notepad.ps1 | iex
+        }
+        'd' {
+            Write-Host "Pobieranie pliku"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex
+        }
+        'e' {
+            Write-Host "Pobieranie pliku"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex
+        }
+        'f' {
+            Write-Host "Zmiana wyglądu TeamViewer"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex
+        }
+		'g' {
+            Write-Host "Aktywacja Windows 10/11"
+            irm https://massgrave.dev/get | iex
+        }
+        'h' {{
+            Write-Host "Aktywacja Office 2021/2023"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex
+        }
+        'i' {
+            Write-Host "Aktywacja WinRAR"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex
+        }
+        'j' {
+            Write-Host "Test przeglądarki"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Web.ps1| iex
+        }
+        'k' {
+            Write-Host "Test odtwarzacza muzyki"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Music.ps1 | iex
+        }
+        'l' {
+            Write-Host "Test przeglądarki zdjęć"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Image.ps1| iex
+        }
+		'm' {
+            Write-Host "Test odtwarzacza filmów"
+            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Video.ps1 | iex
+        }
+        default { Write-Host "Nieprawidłowy wybór, spróbuj ponownie." }
     }
+    
+    # Opóźnienie przed powrotem do menu
+    Start-Sleep -Seconds 3
+}
 
-    if ($choice -ne 0) {
-        # Dodaj opóźnienie, aby użytkownik mógł zobaczyć wynik i powrót do menu
-        Start-Sleep -Seconds 2
-    }
-
-} while ($choice -ne 0)
+# Główna część skryptu
+while ($true) {
+    Show-Menu
+    $userInput = Read-Host "Wybierz opcję"
+    Execute-Choice -choice $userInput
+}
