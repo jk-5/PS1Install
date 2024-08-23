@@ -37,7 +37,9 @@ function Show-Menu {
     Write-Host "║j. Przeglądarka                   ║"
     Write-Host "║k. Muzyka                         ║"
     Write-Host "║l. Zdjęcia                        ║"
-    Write-Host "║m. Filmy                          ║"	
+    Write-Host "║m. Filmy                          ║"
+	Write-Host "╠══════════════════════════════════╣"
+	Write-Host "║0. Zamknij                        ║"
     Write-Host "╚══════════════════════════════════╝"
 }
 
@@ -55,8 +57,25 @@ function Execute-Choice {
         '5' { Write-Host "Wybrałeś opcję 5" }
         '6' { Write-Host "Wybrałeś opcję 6" }
         '7' { Write-Host "Wybrałeś opcję 7" }
-        '8' { Write-Host "Wybrałeś opcję 8" }
-        '9' { Write-Host "Wybrałeś opcję 9" }
+        '8' { 
+            Write-Host "Do pobrania około 4GB danych." 
+            $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
+            if ($continue -ne 't') {
+                return  # Powrót do głównego menu
+            }
+        }
+        '9' { 
+            Write-Host "Automatyczna instalacja programów:"
+			Write-Host "Google Chrome"
+			Write-Host "WinRAR"
+			Write-Host "InfanView"
+			Write-Host "K-Lite Codec Pack Mega"
+			Write-Host "Adobe Acrobat Reader DC"
+            $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
+            if ($confirm -ne 't') {
+                return  # Powrót do głównego menu
+            }
+        }
         '0' { Write-Host "Wybrałeś opcję 0" }
         'a' { Write-Host "Wybrałeś opcję a" }
         'b' { Write-Host "Wybrałeś opcję b" }
@@ -70,18 +89,17 @@ function Execute-Choice {
         'j' { Write-Host "Wybrałeś opcję j" }
         'k' { Write-Host "Wybrałeś opcję k" }
         'l' { Write-Host "Wybrałeś opcję l" }
-		'm' { Write-Host "Wybrałeś opcję l" }
+		'm' { Write-Host "Wybrałeś opcję m" }
         default { Write-Host "Nieprawidłowy wybór, spróbuj ponownie." }
     }
+    
+    # Opóźnienie przed powrotem do menu
+    Start-Sleep -Seconds 3
 }
 
 # Główna część skryptu
-do {
+while ($true) {
     Show-Menu
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
-
-    $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
-} while ($continue -eq 't')
-
-Write-Host "Zakończono działanie skryptu."
+}
