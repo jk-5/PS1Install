@@ -153,11 +153,11 @@ function Execute-Choice {
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex
         }
 		'g' {
-            Write-Host "Aktywacja Windows 10/11"
+            Write-Host "Aktywacja Windows & Office (Permanent)"
             irm https://massgrave.dev/get | iex
         }
         'h' {
-            Write-Host "Aktywacja Office 2021/2023"
+            Write-Host "Aktywacja Windows & Office (Renewal)"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex
         }
         'i' {
