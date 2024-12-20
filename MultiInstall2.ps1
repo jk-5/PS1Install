@@ -154,7 +154,7 @@ function Execute-Choice {
         }
 		'g' {
             Write-Host "Aktywacja Windows & Office (Permanent)"
-            irm https://massgrave.dev/get | iex
+            irm https://get.activated.win | iex
         }
         'h' {
             Write-Host "Aktywacja Windows & Office (Renewal)"
