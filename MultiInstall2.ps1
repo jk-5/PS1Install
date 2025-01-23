@@ -100,15 +100,8 @@ function Execute-Choice {
 	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
         }
         '8' { 
-			Write-Host "------------------------------------"
-            Write-Host "Instalacja Office 2021 Professional Plus" 
-			Write-Host "Do pobrania około 4GB danych."
-   			Write-Host "------------------------------------"
-            $continue = Read-Host "Czy chcesz kontynuować? (t/n)"
-            if ($continue -ne 't') {
-                return  # Powrót do głównego menu
-            }
-			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallOffice2021.ps1 | iex
+            Write-Host "Instalacja Office" 
+	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Office_Installer.ps1 | iex
         }
         '9' { 
 			Write-Host "------------------------------------"
