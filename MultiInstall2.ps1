@@ -41,7 +41,7 @@ function Show-Menu {
     Write-Host "║5. Adobe Acrobat Reader DC        ║"
     Write-Host "║6. TeamViewer                     ║"
     Write-Host "║7. SpotX (modyfikowany Spotify)   ║"
-    Write-Host "║8. Office 2021 Professional Plus  ║"
+    Write-Host "║8. Office                         ║"
     Write-Host "║9. Wszystkie podstawowe (1-5)     ║"
     Write-Host "╠══════════ Zaawansowane ══════════║"
     Write-Host "║a. Winaero Tweaker                ║"
