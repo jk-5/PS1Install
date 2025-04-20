@@ -31,7 +31,7 @@ cls
 # Wyświetlenie menu
 function Show-Menu {
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v2.61   ║"
+    Write-Host "║   Multi Installer by J.K v2.70   ║"
     Write-Host "╠══════════════════════════════════╣"
 	Write-Host "╠═══════════ Podstawowe ═══════════╣"
     Write-Host "║1. Google Chrome                  ║"
@@ -61,6 +61,7 @@ function Show-Menu {
 	Write-Host "║m. Filmy                          ║"
 	Write-Host "╠═══════Winget check updates═══════╣"
     Write-Host "║n. Wyszukaj aktualizacje          ║"
+    Write-Host "║o. Zainstaluj aktualizacje        ║"
 	Write-Host "╠══════════════════════════════════╣"
 	Write-Host "║0. Zamknij                        ║"
     Write-Host "╚══════════════════════════════════╝"
@@ -179,6 +180,17 @@ function Execute-Choice {
             Write-Host "Wyszukiwanie aktualizacji"
 	    cls
             winget upgrade
+			Start-Sleep -Seconds 5
+			$Host.UI.RawUI.ForegroundColor = 'Green'
+        }
+	'o' {
+            Write-Host "Instalowanie aktualizacji"
+	    $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
+            if ($confirm -ne 't') {
+                return  # Powrót do głównego menu
+            }
+	    cls
+            winget upgrade --all
 			Start-Sleep -Seconds 5
 			$Host.UI.RawUI.ForegroundColor = 'Green'
         }
