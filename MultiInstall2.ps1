@@ -58,7 +58,9 @@ function Show-Menu {
     Write-Host "║j. Przeglądarka                   ║"
     Write-Host "║k. Muzyka                         ║"
     Write-Host "║l. Zdjęcia                        ║"
-    Write-Host "║m. Filmy                          ║"
+	Write-Host "║m. Filmy                          ║"
+	Write-Host "╠═══════Winget check updates═══════╣"
+    Write-Host "║n. Wyszukaj aktualizacje          ║"
 	Write-Host "╠══════════════════════════════════╣"
 	Write-Host "║0. Zamknij                        ║"
     Write-Host "╚══════════════════════════════════╝"
@@ -172,6 +174,10 @@ function Execute-Choice {
 		'm' {
             Write-Host "Test odtwarzacza filmów"
             irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Video.ps1 | iex
+        }
+		'n' {
+            Write-Host "Wyszukiwanie aktualizacji"
+            winget upgrade
         }
         default { Write-Host "Nieprawidłowy wybór, spróbuj ponownie." }
     }
