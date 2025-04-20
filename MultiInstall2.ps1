@@ -178,6 +178,8 @@ function Execute-Choice {
 		'n' {
             Write-Host "Wyszukiwanie aktualizacji"
             winget upgrade
+			Start-Sleep -Seconds 5
+			$Host.UI.RawUI.ForegroundColor = 'Green'
         }
         default { Write-Host "Nieprawidłowy wybór, spróbuj ponownie." }
     }
