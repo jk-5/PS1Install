@@ -31,7 +31,7 @@ cls
 # Wyświetlenie menu
 function Show-Menu {
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v2.70   ║"
+    Write-Host "║   Multi Installer by J.K v2.71   ║"
     Write-Host "╠══════════════════════════════════╣"
 	Write-Host "╠═══════════ Podstawowe ═══════════╣"
     Write-Host "║1. Google Chrome                  ║"
@@ -187,6 +187,7 @@ function Execute-Choice {
             Write-Host "Instalowanie aktualizacji"
 	    $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
             if ($confirm -ne 't') {
+	    	cls
                 return  # Powrót do głównego menu
             }
 	    cls
