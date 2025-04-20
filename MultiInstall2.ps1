@@ -31,7 +31,7 @@ cls
 # Wyświetlenie menu
 function Show-Menu {
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v2.60   ║"
+    Write-Host "║   Multi Installer by J.K v2.61   ║"
     Write-Host "╠══════════════════════════════════╣"
 	Write-Host "╠═══════════ Podstawowe ═══════════╣"
     Write-Host "║1. Google Chrome                  ║"
@@ -177,6 +177,7 @@ function Execute-Choice {
         }
 		'n' {
             Write-Host "Wyszukiwanie aktualizacji"
+	    cls
             winget upgrade
 			Start-Sleep -Seconds 5
 			$Host.UI.RawUI.ForegroundColor = 'Green'
