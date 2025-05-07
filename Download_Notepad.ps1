@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 
 cls
 
-$notepadUrl = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.portable.x64.zip"
+$notepadUrl = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.1/npp.8.8.1.portable.x64.zip"
 
 Write-Host "Pobieranie Notepad++ Portable."
 $notepadInstaller = "$env:TEMP\notepad_portable.zip"
