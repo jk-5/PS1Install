@@ -5,13 +5,13 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$acrordrUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/readerdc64_pl_ha_crd_mdr_install.exe"
+$acrordrUrl = "https://raw.githubusercontent.com/jk-5/PS1Install/main/Files/readerdc64_ha_crd_install.exe"
 $installDir = "C:\Program Files\Adobe\Acrobat DC\Acrobat"
 $app = "C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
 
 # Pobieranie i instalacja Adobe Acrobat Reader DC
 Write-Host "Instalacja Adobe Acrobat Reader DC."
-$acrordrInstaller = "$env:TEMP\readerdc64_pl_ha_crd_mdr_install.exe"
+$acrordrInstaller = "$env:TEMP\readerdc64_ha_crd_install.exe"
 Invoke-WebRequest -Uri $acrordrUrl -OutFile $acrordrInstaller
 Start-Process -FilePath $acrordrInstaller -Wait
 
