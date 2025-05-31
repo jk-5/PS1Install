@@ -5,8 +5,8 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$irfanviewUrl = "https://download.instalki.org/programy/Windows/Grafika/przegladarki_grafiki/iview470_x64_setup.exe"
-$pluginsUrl = "https://download.instalki.org/programy/Windows/Dodatki/wtyczki_pozostale/iview470_plugins_x64_setup.exe"
+$irfanviewUrl = "https://download.instalki.org/programy/Windows/Grafika/przegladarki_grafiki/iview472_x64_setup.exe"
+$pluginsUrl = "https://download.instalki.org/programy/Windows/Dodatki/wtyczki_pozostale/iview472_plugins_x64_setup.exe"
 $langUrl = "https://www.irfanview.net/lang/irfanview_lang_polski.exe"
 $installDir = "C:\Program Files\IrfanView"
 $app = "C:\Program Files\IrfanView\i_view64.exe"
