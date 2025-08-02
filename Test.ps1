@@ -1,215 +1,206 @@
 $ErrorActionPreference = "Stop"
-# Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-
-# Ustawienie kodowania na UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 cls
 $Host.UI.RawUI.ForegroundColor = 'Green'
-
-# Ustawienia
 $text = "Created by J.K"
-$delay = 100  # ms między literami
-
-# Faza 1: Wpisywanie po jednym znaku
+$delay = 100
 for ($i = 1; $i -le $text.Length; $i++) {
     Write-Host "`r$text".Substring(0, $i) -NoNewline
     Start-Sleep -Milliseconds $delay
 }
-
-# Ponowne wypisanie pełnego napisu, by był widoczny po pętli
 Write-Host "`r$text" -NoNewline
-
-# Pauza po pełnym napisie
 Start-Sleep -Seconds 1
-
-$Host.UI.RawUI.ForegroundColor = 'Green'
-
 cls
 
-# Wyświetlenie menu
-function Show-Menu {
+function Show-MainMenu {
     Write-Host "╔══════════════════════════════════╗"
     Write-Host "║   Multi Installer by J.K v2.71   ║"
     Write-Host "╠══════════════════════════════════╣"
-	Write-Host "╠═══════════ Podstawowe ═══════════╣"
+    Write-Host "║1. Podstawowe                     ║"
+    Write-Host "║2. Zaawansowane                   ║"
+    Write-Host "║3. Aktywatory                     ║"
+    Write-Host "║4. Test ustawień domyślnych       ║"
+    Write-Host "║5. Winget - aktualizacje          ║"
+    Write-Host "║0. Zamknij                        ║"
+    Write-Host "╚══════════════════════════════════╝"
+}
+
+function Show-PodstawoweMenu {
+    Write-Host "╔═══════════ Podstawowe ═══════════╗"
     Write-Host "║1. Google Chrome                  ║"
     Write-Host "║2. WinRAR                         ║"
     Write-Host "║3. InfanView                      ║"
     Write-Host "║4. K-Lite Codec Pack Mega         ║"
     Write-Host "║5. Adobe Acrobat Reader DC        ║"
     Write-Host "║6. TeamViewer                     ║"
-    Write-Host "║7. SpotX (modyfikowany Spotify)   ║"
+    Write-Host "║7. SpotX (Spotify mod)            ║"
     Write-Host "║8. Office                         ║"
     Write-Host "║9. Wszystkie podstawowe (1-5)     ║"
-    Write-Host "╠══════════ Zaawansowane ══════════║"
-    Write-Host "║a. Winaero Tweaker                ║"
-    Write-Host "║b. CCleaner                       ║"
-    Write-Host "║c. Notepad++                      ║"
-    Write-Host "║d. Menu kontekstowe pulpitu       ║"
-    Write-Host "║e. Usuń historię Windows Defender ║"
-    Write-Host "║f. Włącz ClassicUI w TeamViewer   ║"
-    Write-Host "╠═══════════ Aktywatory ═══════════║"
-    Write-Host "║g. Windows & Office (Permanent)   ║"
-    Write-Host "║h. Windows & Office (Renewal)     ║"
-    Write-Host "║i. WinRAR                         ║"
-    Write-Host "╠════ Test ustawień domyślnych ════║"
-    Write-Host "║j. Przeglądarka                   ║"
-    Write-Host "║k. Muzyka                         ║"
-    Write-Host "║l. Zdjęcia                        ║"
-	Write-Host "║m. Filmy                          ║"
-	Write-Host "╠═══════Winget check updates═══════╣"
-    Write-Host "║n. Wyszukaj aktualizacje          ║"
-    Write-Host "║o. Zainstaluj aktualizacje        ║"
-	Write-Host "╠══════════════════════════════════╣"
-	Write-Host "║0. Zamknij                        ║"
+    Write-Host "║0. Powrót                         ║"
     Write-Host "╚══════════════════════════════════╝"
 }
 
-# Funkcja wyboru akcji
-function Execute-Choice {
-    param (
-        [string]$choice
-    )
-
-    switch ($choice) {
-        '1' {
-            Write-Host "Instalacja Google Chrome"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallChrome.ps1 | iex
-        }
-        '2' {
-            Write-Host "Instalacja WinRar"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallWinRAR.ps1 | iex
-        }
-        '3' {
-            Write-Host "Instalacja IrfanView"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
-        }
-        '4' {
-            Write-Host "Instalacja K-Lite Codec Pack Mega"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex
-        }
-        '5' {
-            Write-Host "Instalacja Adobe Acrobat Reader DC"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex
-        }
-        '6' {
-            Write-Host "Instalacja TeamViewer."
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex
-        }
-        '7' {
-            Write-Host "Instaluj SpotX (modyfikowany Spotify)"
-	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex
-        }
-        '8' { 
-            Write-Host "Instalacja Office" 
-	    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Office_Installer.ps1 | iex
-        }
-        '9' { 
-			Write-Host "------------------------------------"
-            Write-Host "Automatyczna instalacja programów:"
-			Write-Host "Google Chrome"
-			Write-Host "WinRAR"
-			Write-Host "InfanView"
-			Write-Host "K-Lite Codec Pack Mega"
-			Write-Host "Adobe Acrobat Reader DC"
-   			Write-Host "------------------------------------"
-            $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
-            if ($confirm -ne 't') {
-                return  # Powrót do głównego menu
+function Execute-Podstawowe {
+    while ($true) {
+        Show-PodstawoweMenu
+        $choice = Read-Host "Wybierz opcję"
+        switch ($choice) {
+            '1' { winget install Google.Chrome }
+            '2' { winget install RARLab.WinRAR }
+            '3' { winget install IrfanSkiljan.IrfanView
+	    	  winget install IrfanSkiljan.IrfanView.PlugIns
+		  irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex}
+            '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex }
+            '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex }
+            '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex }
+            '7' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex }
+            '8' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Office_Installer.ps1 | iex }
+            '9' {
+                Write-Host "Instalacja wszystkich podstawowych programów"
+                $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
+                if ($confirm -eq 't') {
+                    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
+                }
             }
-			irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex 
+            '0' { break }
+            default { Write-Host "Nieprawidłowy wybór." }
         }
-        '0' { cls
-			exit
-			}
-        'a' {
-            Write-Host "Pobieranie Winaero Tweaker"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Winaero.ps1 | iex
-        }
-        'b' {
-            Write-Host "Pobieranie CCleaner"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_CCleaner.ps1 | iex
-        }
-        'c' {
-            Write-Host "Pobieranie Notepad++"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Notepad.ps1 | iex
-        }
-        'd' {
-            Write-Host "Pobieranie pliku"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex
-        }
-        'e' {
-            Write-Host "Pobieranie pliku"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex
-        }
-        'f' {
-            Write-Host "Zmiana wyglądu TeamViewer"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex
-        }
-		'g' {
-            Write-Host "Aktywacja Windows & Office (Permanent)"
-            irm https://get.activated.win | iex
-        }
-        'h' {
-            Write-Host "Aktywacja Windows & Office (Renewal)"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex
-        }
-        'i' {
-            Write-Host "Aktywacja WinRAR"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex
-        }
-        'j' {
-            Write-Host "Test przeglądarki"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Web.ps1| iex
-        }
-        'k' {
-            Write-Host "Test odtwarzacza muzyki"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Music.ps1 | iex
-        }
-        'l' {
-            Write-Host "Test przeglądarki zdjęć"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Image.ps1| iex
-        }
-		'm' {
-            Write-Host "Test odtwarzacza filmów"
-            irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Video.ps1 | iex
-        }
-		'n' {
-            Write-Host "Wyszukiwanie aktualizacji"
-	    cls
-            winget upgrade
-			Start-Sleep -Seconds 5
-			$Host.UI.RawUI.ForegroundColor = 'Green'
-        }
-	'o' {
-            Write-Host "Instalowanie aktualizacji"
-	    $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
-            if ($confirm -ne 't') {
-	    	cls
-                return  # Powrót do głównego menu
-            }
-	    cls
-            winget upgrade --all
-			Start-Sleep -Seconds 5
-			$Host.UI.RawUI.ForegroundColor = 'Green'
-        }
-        default { Write-Host "Nieprawidłowy wybór, spróbuj ponownie." }
+        Start-Sleep -Seconds 2
+        cls
     }
-    
-    # Opóźnienie przed powrotem do menu
-    Start-Sleep -Seconds 2
 }
 
-# Główna część skryptu
+function Show-ZaawansowaneMenu {
+    Write-Host "╔══════════ Zaawansowane ══════════╗"
+    Write-Host "║1. Winaero Tweaker                ║"
+    Write-Host "║2. CCleaner                       ║"
+    Write-Host "║3. Notepad++                      ║"
+    Write-Host "║4. Menu kontekstowe pulpitu       ║"
+    Write-Host "║5. Usuń historię Defendera        ║"
+    Write-Host "║6. TeamViewer - ClassicUI         ║"
+    Write-Host "║0. Powrót                         ║"
+    Write-Host "╚══════════════════════════════════╝"
+}
+
+function Execute-Zaawansowane {
+    while ($true) {
+        Show-ZaawansowaneMenu
+        $choice = Read-Host "Wybierz opcję"
+        switch ($choice) {
+            '1' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Winaero.ps1 | iex }
+            '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_CCleaner.ps1 | iex }
+            '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Notepad.ps1 | iex }
+            '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
+            '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
+            '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex }
+            '0' { break }
+            default { Write-Host "Nieprawidłowy wybór." }
+        }
+        Start-Sleep -Seconds 2
+        cls
+    }
+}
+
+function Show-AktywatoryMenu {
+    Write-Host "╔═══════════ Aktywatory ═══════════╗"
+    Write-Host "║1. Windows & Office (Permanent)   ║"
+    Write-Host "║2. Windows & Office (Renewal)     ║"
+    Write-Host "║3. WinRAR                         ║"
+    Write-Host "║0. Powrót                         ║"
+    Write-Host "╚══════════════════════════════════╝"
+}
+
+function Execute-Aktywatory {
+    while ($true) {
+        Show-AktywatoryMenu
+        $choice = Read-Host "Wybierz opcję"
+        switch ($choice) {
+            '1' { irm https://get.activated.win | iex }
+            '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex }
+            '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex }
+            '0' { break }
+            default { Write-Host "Nieprawidłowy wybór." }
+        }
+        Start-Sleep -Seconds 2
+        cls
+    }
+}
+
+function Show-TestMenu {
+    Write-Host "╔════ Test ustawień domyślnych ════╗"
+    Write-Host "║1. Przeglądarka                   ║"
+    Write-Host "║2. Muzyka                         ║"
+    Write-Host "║3. Zdjęcia                        ║"
+    Write-Host "║4. Filmy                          ║"
+    Write-Host "║0. Powrót                         ║"
+    Write-Host "╚══════════════════════════════════╝"
+}
+
+function Execute-Test {
+    while ($true) {
+        Show-TestMenu
+        $choice = Read-Host "Wybierz opcję"
+        switch ($choice) {
+            '1' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Web.ps1 | iex }
+            '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Music.ps1 | iex }
+            '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Image.ps1 | iex }
+            '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Video.ps1 | iex }
+            '0' { break }
+            default { Write-Host "Nieprawidłowy wybór." }
+        }
+        Start-Sleep -Seconds 2
+        cls
+    }
+}
+
+function Show-WingetMenu {
+    Write-Host "╔═══════ Winget - aktualizacje ═══════╗"
+    Write-Host "║1. Wyszukaj aktualizacje             ║"
+    Write-Host "║2. Zainstaluj aktualizacje           ║"
+    Write-Host "║0. Powrót                            ║"
+    Write-Host "╚═════════════════════════════════════╝"
+}
+
+function Execute-Winget {
+    while ($true) {
+        Show-WingetMenu
+        $choice = Read-Host "Wybierz opcję"
+        switch ($choice) {
+            '1' {
+                cls
+                winget upgrade
+                Start-Sleep -Seconds 5
+            }
+            '2' {
+                $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
+                if ($confirm -eq 't') {
+                    cls
+                    winget upgrade --all
+                    Start-Sleep -Seconds 5
+                }
+            }
+            '0' { break }
+            default { Write-Host "Nieprawidłowy wybór." }
+        }
+        Start-Sleep -Seconds 2
+        cls
+    }
+}
+
 while ($true) {
-    Show-Menu
-    $userInput = Read-Host "Wybierz opcję"
-    Execute-Choice -choice $userInput
+    Show-MainMenu
+    $mainChoice = Read-Host "Wybierz opcję"
+    switch ($mainChoice) {
+        '1' { Execute-Podstawowe }
+        '2' { Execute-Zaawansowane }
+        '3' { Execute-Aktywatory }
+        '4' { Execute-Test }
+        '5' { Execute-Winget }
+        '0' { break }
+        default { Write-Host "Opcja niedostępna." }
+    }
+    Start-Sleep -Seconds 1
+    cls
 }
-
-
-
-
-
