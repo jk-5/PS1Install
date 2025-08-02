@@ -17,7 +17,7 @@ cls
 function Show-MainMenu {
 $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v2.71   ║"
+    Write-Host "║   Multi Installer by J.K v3.00   ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -49,22 +49,30 @@ function Execute-Podstawowe {
         Show-PodstawoweMenu
         $choice = Read-Host "Wybierz opcję"
         switch ($choice) {
-            '1' { winget install Google.Chrome }
+            '1' { winget install Google.Chrome.EXE }
             '2' { winget install RARLab.WinRAR 
 	          irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex}
             '3' { winget install IrfanSkiljan.IrfanView
 	    	  winget install IrfanSkiljan.IrfanView.PlugIns
 		  irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex}
-            '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallCodecPack.ps1 | iex }
-            '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallAcrobatReader.ps1 | iex }
-            '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallTeamViewer.ps1 | iex }
+            '4' { winget install CodecGuide.K-LiteCodecPack.Mega }
+            '5' { winget install Adobe.Acrobat.Reader.64-bit }
+            '6' { winget install TeamViewer.TeamViewer
+	    	  Set-ItemProperty -Path "HKCU:\SOFTWARE\TeamViewer" -Name "UIVersion" -Value 2 }
             '7' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex }
             '8' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Office_Installer.ps1 | iex }
             '9' {
                 Write-Host "Instalacja wszystkich podstawowych programów"
                 $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
                 if ($confirm -eq 't') {
-                    irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
+                winget install Google.Chrome.EXE 
+                winget install RARLab.WinRAR 
+	        irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex
+                winget install IrfanSkiljan.IrfanView
+	    	winget install IrfanSkiljan.IrfanView.PlugIns
+		irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
+                winget install CodecGuide.K-LiteCodecPack.Mega 
+                winget install Adobe.Acrobat.Reader.64-bit    
                 }
             }
             '0' { return }
@@ -93,9 +101,9 @@ function Execute-Zaawansowane {
         Show-ZaawansowaneMenu
         $choice = Read-Host "Wybierz opcję"
         switch ($choice) {
-            '1' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Winaero.ps1 | iex }
-            '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_CCleaner.ps1 | iex }
-            '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Notepad.ps1 | iex }
+            '1' { winget install winaero.tweaker }
+            '2' { winget install Piriform.CCleaner }
+            '3' { winget install Notepad++.Notepad++ }
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
             '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
             '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex }
@@ -211,6 +219,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
