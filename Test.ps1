@@ -24,17 +24,6 @@ Write-Host "`r$text" -NoNewline
 # Pauza po pełnym napisie
 Start-Sleep -Seconds 1
 
-# Faza 2: Usuwanie od początku
-for ($i = 1; $i -le $text.Length; $i++) {
-    $remaining = $text.Substring($i)
-    Write-Host "`r$remaining" + " " * $i -NoNewline
-    Start-Sleep -Milliseconds $delay
-}
-
-# Przejdź do nowej linii po zakończeniu
-Write-Host ""
-
-
 $Host.UI.RawUI.ForegroundColor = 'Green'
 
 cls
@@ -219,5 +208,6 @@ while ($true) {
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
 }
+
 
 
