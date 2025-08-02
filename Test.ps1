@@ -15,6 +15,7 @@ Start-Sleep -Seconds 1
 cls
 
 function Show-MainMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
     Write-Host "║   Multi Installer by J.K v2.71   ║"
     Write-Host "╠══════════════════════════════════╣"
@@ -28,6 +29,7 @@ function Show-MainMenu {
 }
 
 function Show-PodstawoweMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔═══════════ Podstawowe ═══════════╗"
     Write-Host "║1. Google Chrome                  ║"
     Write-Host "║2. WinRAR                         ║"
@@ -74,6 +76,7 @@ function Execute-Podstawowe {
 }
 
 function Show-ZaawansowaneMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════ Zaawansowane ══════════╗"
     Write-Host "║1. Winaero Tweaker                ║"
     Write-Host "║2. CCleaner                       ║"
@@ -105,6 +108,7 @@ function Execute-Zaawansowane {
 }
 
 function Show-AktywatoryMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔═══════════ Aktywatory ═══════════╗"
     Write-Host "║1. Windows & Office (Permanent)   ║"
     Write-Host "║2. Windows & Office (Renewal)     ║"
@@ -130,6 +134,7 @@ function Execute-Aktywatory {
 }
 
 function Show-TestMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔════ Test ustawień domyślnych ════╗"
     Write-Host "║1. Przeglądarka                   ║"
     Write-Host "║2. Muzyka                         ║"
@@ -157,6 +162,7 @@ function Execute-Test {
 }
 
 function Show-WingetMenu {
+$Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔═══════ Winget - aktualizacje ═══════╗"
     Write-Host "║1. Wyszukaj aktualizacje             ║"
     Write-Host "║2. Zainstaluj aktualizacje           ║"
@@ -205,4 +211,5 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
