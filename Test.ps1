@@ -10,7 +10,7 @@ $Host.UI.RawUI.ForegroundColor = 'Green'
 
 # Ustawienia
 $text = "Created by J.K"
-$delay = 50  # ms między literami
+$delay = 100  # ms między literami
 
 # Faza 1: Wpisywanie po jednym znaku
 for ($i = 1; $i -le $text.Length; $i++) {
@@ -208,6 +208,7 @@ while ($true) {
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
 }
+
 
 
 
