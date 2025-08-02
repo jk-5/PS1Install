@@ -18,7 +18,7 @@ for ($i = 1; $i -le $text.Length; $i++) {
     Start-Sleep -Milliseconds $delay
 }
 
-# 👇 Dodaj ponowne wypisanie pełnego napisu, by był widoczny po pętli
+# Ponowne wypisanie pełnego napisu, by był widoczny po pętli
 Write-Host "`r$text" -NoNewline
 
 # Pauza po pełnym napisie
@@ -208,6 +208,7 @@ while ($true) {
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
 }
+
 
 
 
