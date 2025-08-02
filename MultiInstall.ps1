@@ -219,10 +219,11 @@ while ($true) {
         '3' { Execute-Aktywatory }
         '4' { Execute-Test }
         '5' { Execute-Winget }
-        '0' { return }
+        '0' { exit }
         default { Write-Host "Opcja niedostępna." }
     }
     Start-Sleep -Seconds 1
     cls
 }
+
 
