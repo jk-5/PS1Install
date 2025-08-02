@@ -48,7 +48,8 @@ function Execute-Podstawowe {
         $choice = Read-Host "Wybierz opcję"
         switch ($choice) {
             '1' { winget install Google.Chrome }
-            '2' { winget install RARLab.WinRAR }
+            '2' { winget install RARLab.WinRAR 
+	          irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex}
             '3' { winget install IrfanSkiljan.IrfanView
 	    	  winget install IrfanSkiljan.IrfanView.PlugIns
 		  irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex}
@@ -204,3 +205,4 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
