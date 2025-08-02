@@ -9,13 +9,16 @@ cls
 
 # Ustawienia
 $text = "Created by J.K"
-$delay = 100  # ms między literami
+$delay = 50  # ms między literami
 
 # Faza 1: Wpisywanie po jednym znaku
 for ($i = 1; $i -le $text.Length; $i++) {
     Write-Host "`r$text".Substring(0, $i) -NoNewline
     Start-Sleep -Milliseconds $delay
 }
+
+# 👇 Dodaj ponowne wypisanie pełnego napisu, by był widoczny po pętli
+Write-Host "`r$text" -NoNewline
 
 # Pauza po pełnym napisie
 Start-Sleep -Seconds 1
@@ -26,6 +29,10 @@ for ($i = 1; $i -le $text.Length; $i++) {
     Write-Host "`r$remaining" + " " * $i -NoNewline
     Start-Sleep -Milliseconds $delay
 }
+
+# Przejdź do nowej linii po zakończeniu
+Write-Host ""
+
 
 $Host.UI.RawUI.ForegroundColor = 'Green'
 
@@ -211,3 +218,4 @@ while ($true) {
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
 }
+
