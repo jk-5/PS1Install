@@ -67,7 +67,7 @@ function Execute-Podstawowe {
                     irm https://raw.githubusercontent.com/jk-5/PS1Install/main/FullInstall.ps1 | iex
                 }
             }
-            '0' { break }
+            '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
         Start-Sleep -Seconds 2
@@ -99,7 +99,7 @@ function Execute-Zaawansowane {
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
             '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
             '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex }
-            '0' { break }
+            '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
         Start-Sleep -Seconds 2
@@ -125,7 +125,7 @@ function Execute-Aktywatory {
             '1' { irm https://get.activated.win | iex }
             '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateKMS.ps1 | iex }
             '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex }
-            '0' { break }
+            '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
         Start-Sleep -Seconds 2
@@ -153,7 +153,7 @@ function Execute-Test {
             '2' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Music.ps1 | iex }
             '3' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Image.ps1 | iex }
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Download_Video.ps1 | iex }
-            '0' { break }
+            '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
         Start-Sleep -Seconds 2
@@ -188,7 +188,7 @@ function Execute-Winget {
                     Start-Sleep -Seconds 5
                 }
             }
-            '0' { break }
+            '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
         Start-Sleep -Seconds 2
@@ -205,11 +205,12 @@ while ($true) {
         '3' { Execute-Aktywatory }
         '4' { Execute-Test }
         '5' { Execute-Winget }
-        '0' { break }
+        '0' { return }
         default { Write-Host "Opcja niedostępna." }
     }
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
