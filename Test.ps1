@@ -6,6 +6,7 @@ $ErrorActionPreference = "Stop"
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 cls
+$Host.UI.RawUI.ForegroundColor = 'Green'
 
 # Ustawienia
 $text = "Created by J.K"
@@ -218,4 +219,5 @@ while ($true) {
     $userInput = Read-Host "Wybierz opcję"
     Execute-Choice -choice $userInput
 }
+
 
