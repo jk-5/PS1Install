@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-712pl.exe"
+$winrarUrl = "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-713pl.exe"
 $file = "C:\Program Files\WinRAR\rarreg.key"
 $app = "C:\Program Files\WinRAR\WinRAR.exe"
 
@@ -19,3 +19,4 @@ Remove-Item -Path $winrarInstaller
 # Aktywacja WinRAR
 Write-Host "Aktywacja WinRar"
 irm https://raw.githubusercontent.com/jk-5/PS1Install/main/ActivateWinRAR.ps1 | iex
+
