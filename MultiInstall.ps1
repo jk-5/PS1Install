@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 $Host.UI.RawUI.ForegroundColor = 'Green'
 $text = "Created by J.K"
-$delay = 100
+$delay = 50
 for ($i = 1; $i -le $text.Length; $i++) {
     Write-Host "`r$text".Substring(0, $i) -NoNewline
     Start-Sleep -Milliseconds $delay
@@ -225,5 +225,6 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
