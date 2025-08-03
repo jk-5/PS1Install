@@ -25,12 +25,12 @@ function New-Form {
 function Show-MainForm {
     $form = New-Form -Title "Multi Installer by J.K" -Size (New-Object Drawing.Size(400, 350)) -ContentScript {
         param($form)
-        
+
         $buttons = @(
             "Podstawowe", "Zaawansowane", "Aktywatory",
             "Test ustawień domyślnych", "Winget - aktualizacje", "Zamknij"
         )
-        
+
         for ($i = 0; $i -lt $buttons.Count; $i++) {
             $btn = New-Object Windows.Forms.Button
             $btn.Text = $buttons[$i]
@@ -38,11 +38,11 @@ function Show-MainForm {
             $btn.Location = New-Object Drawing.Point(30, 20 + ($i * 45))
             $btn.Add_Click({
                 switch ($btn.Text) {
-                    "Podstawowe" { Show-PodstawoweForm.ShowDialog() }
-                    "Zaawansowane" { Show-ZaawansowaneForm.ShowDialog() }
-                    "Aktywatory" { Show-AktywatoryForm.ShowDialog() }
-                    "Test ustawień domyślnych" { Show-TestForm.ShowDialog() }
-                    "Winget - aktualizacje" { Show-WingetForm.ShowDialog() }
+                    "Podstawowe" { Show-PodstawoweForm().ShowDialog() }
+                    "Zaawansowane" { Show-ZaawansowaneForm().ShowDialog() }
+                    "Aktywatory" { Show-AktywatoryForm().ShowDialog() }
+                    "Test ustawień domyślnych" { Show-TestForm().ShowDialog() }
+                    "Winget - aktualizacje" { Show-WingetForm().ShowDialog() }
                     "Zamknij" { $form.Close() }
                 }
             })
