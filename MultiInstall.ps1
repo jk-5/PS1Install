@@ -18,7 +18,7 @@ function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
     Write-Host "║   Multi Installer by J.K v3.20   ║"
-    Write-Host "║     Last update: 23.01.2026"     ║
+    Write-Host "║     Last update: 23.01.2026"     ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -26,7 +26,7 @@ function Show-MainMenu {
     Write-Host "║4. Test ustawień domyślnych       ║"
     Write-Host "║5. Winget - aktualizacje          ║"
     Write-Host "║0. Zamknij                        ║"
-    Write-Host "╚═══════════════════════════════════╝"
+    Write-Host "╚══════════════════════════════════╝"
 }
 
 function Show-PodstawoweMenu {
@@ -235,6 +235,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
