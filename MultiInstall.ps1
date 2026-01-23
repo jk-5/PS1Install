@@ -11,14 +11,14 @@ for ($i = 1; $i -le $text.Length; $i++) {
     Start-Sleep -Milliseconds $delay
 }
 Write-Host "`r$text" -NoNewline
-Write-Host "Last update: 23.01.2026"
 Start-Sleep -Seconds 1
 cls
 
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.10   ║"
+    Write-Host "║   Multi Installer by J.K v3.11   ║"
+    Write-Host "║     Last update: 23.01.2026"     ║
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -226,6 +226,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
