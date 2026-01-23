@@ -11,14 +11,15 @@ for ($i = 1; $i -le $text.Length; $i++) {
     Start-Sleep -Milliseconds $delay
 }
 Write-Host "`r$text" -NoNewline
+Write-Host "Last update: 23.01.2026"
 Start-Sleep -Seconds 1
 cls
 
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
-    Write-Host "╔═══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.00   ║"
-    Write-Host "╠═══════════════════════════════════╣"
+    Write-Host "╔══════════════════════════════════╗"
+    Write-Host "║   Multi Installer by J.K v3.10   ║"
+    Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
     Write-Host "║3. Aktywatory                     ║"
@@ -93,7 +94,7 @@ function Show-ZaawansowaneMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════ Zaawansowane ══════════╗"
     Write-Host "║1. Winaero Tweaker                ║"
-    Write-Host "║2. CCleaner                       ║"
+    Write-Host "║2. LocalSend                       ║"
     Write-Host "║3. Notepad++                      ║"
     Write-Host "║4. Menu kontekstowe pulpitu       ║"
     Write-Host "║5. Usuń historię Defendera        ║"
@@ -108,7 +109,7 @@ function Execute-Zaawansowane {
         $choice = Read-Host "Wybierz opcję"
         switch ($choice) {
             '1' { winget install winaero.tweaker }
-            '2' { winget install Piriform.CCleaner }
+            '2' { winget install LocalSend.LocalSend }
             '3' { winget install Notepad++.Notepad++ }
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
             '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
@@ -225,6 +226,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
