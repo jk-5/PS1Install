@@ -17,7 +17,7 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.11   ║"
+    Write-Host "║   Multi Installer by J.K v3.20   ║"
     Write-Host "║     Last update: 23.01.2026"     ║
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
@@ -94,11 +94,14 @@ function Show-ZaawansowaneMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════ Zaawansowane ══════════╗"
     Write-Host "║1. Winaero Tweaker                ║"
-    Write-Host "║2. LocalSend                       ║"
+    Write-Host "║2. LocalSend                      ║"
     Write-Host "║3. Notepad++                      ║"
     Write-Host "║4. Menu kontekstowe pulpitu       ║"
     Write-Host "║5. Usuń historię Defendera        ║"
     Write-Host "║6. TeamViewer - ClassicUI         ║"
+    Write-Host "║7. TightVNC                       ║"
+    Write-Host "║8. IObit Uninstaller + Unlocker   ║"
+    Write-Host "║9. qBittorrent                    ║"
     Write-Host "║0. Powrót                         ║"
     Write-Host "╚══════════════════════════════════╝"
 }
@@ -114,6 +117,12 @@ function Execute-Zaawansowane {
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
             '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
             '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex }
+            '7' { winget install GlavSoft.TightVNC }
+            '8' { 
+                  winget install IObit.Uninstaller
+                  winget install IObit.IObitUnlocker
+            }
+            '9' { winget install qBittorrent.qBittorrent }
             '0' { return }
             default { Write-Host "Nieprawidłowy wybór." }
         }
@@ -226,6 +235,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
