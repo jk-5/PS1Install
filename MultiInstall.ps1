@@ -17,8 +17,8 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.20   ║"
-    Write-Host "║     Last update: 23.01.2026"     ║"
+    Write-Host "║   Multi Installer by J.K v3.21   ║"
+    Write-Host "║     Last update: 23.01.2026      ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -235,6 +235,7 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
+
 
 
 
