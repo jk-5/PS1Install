@@ -17,8 +17,8 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.21   ║"
-    Write-Host "║     Last update: 23.01.2026      ║"
+    Write-Host "║   Multi Installer by J.K v3.22   ║"
+    Write-Host "║     Last update: 12.04.2026      ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -202,14 +202,16 @@ function Execute-Winget {
             '1' {
                 cls
                 winget upgrade
-                Start-Sleep -Seconds 5
+                Write-Host ""
+                Read-Host "Naciśnij klawisz Enter, aby kontynuować..."
             }
             '2' {
                 $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"
                 if ($confirm -eq 't') {
                     cls
                     winget upgrade --all
-                    Start-Sleep -Seconds 5
+                    Write-Host ""
+                    Read-Host "Aktualizacja zakończona. Naciśnij klawisz Enter, aby kontynuować..."
                 }
             }
             '0' { return }
@@ -235,11 +237,3 @@ while ($true) {
     Start-Sleep -Seconds 1
     cls
 }
-
-
-
-
-
-
-
-
