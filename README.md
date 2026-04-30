@@ -1,8 +1,7 @@
-markdown_content = """# PowerShell Multi Installer 🛠️
+PowerShell Multi Installer 🛠️
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)
 
 **PowerShell Multi Installer** to kompleksowe narzędzie automatyzujące proces przygotowania systemu Windows do pracy. Pozwala na szybką instalację niezbędnego oprogramowania, zarządzanie aktualizacjami oraz optymalizację konfiguracji systemowej za pomocą jednego polecenia.
 
@@ -25,4 +24,4 @@ Nie musisz niczego pobierać ręcznie. Narzędzie można uruchomić bezpośredni
 3. Skopiuj poniższe polecenie, wklej do konsoli i naciśnij **Enter**:
 
 ```powershell
-irm [https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiInstall.ps1](https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiInstall.ps1) | iex
+irm https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiInstall.ps1 | iex
