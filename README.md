@@ -25,3 +25,5 @@ Nie musisz niczego pobierać ręcznie. Narzędzie można uruchomić bezpośredni
 
 ```powershell
 irm https://raw.githubusercontent.com/jk-5/PS1Install/main/MultiInstall.ps1 | iex
+
+# [← Powrót do J.K Serwis PC](https://jk-5.github.io/)
