@@ -17,5 +17,5 @@ Remove-Item -Path $setupInstaller
 # Uruchomienie ADB Manager by J.K
 cls
 Write-Host "Instalacja ADB Manager by J.K ukończona."
-Start-Process -FilePath $app
+#Start-Process -FilePath $app
 
