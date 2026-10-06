@@ -17,8 +17,8 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.22   ║"
-    Write-Host "║     Last update: 12.04.2026      ║"
+    Write-Host "║   Multi Installer by J.K v3.30   ║"
+    Write-Host "║     Last update: 06.10.2026      ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -97,7 +97,7 @@ function Show-ZaawansowaneMenu {
     Write-Host "║2. LocalSend                      ║"
     Write-Host "║3. Notepad++                      ║"
     Write-Host "║4. Menu kontekstowe pulpitu       ║"
-    Write-Host "║5. Usuń historię Defendera        ║"
+    Write-Host "║5. ADB Manager by J.K             ║"
     Write-Host "║6. TeamViewer - ClassicUI         ║"
     Write-Host "║7. TightVNC                       ║"
     Write-Host "║8. IObit Uninstaller + Unlocker   ║"
@@ -115,7 +115,7 @@ function Execute-Zaawansowane {
             '2' { winget install LocalSend.LocalSend }
             '3' { winget install Notepad++.Notepad++ }
             '4' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Add_desktop_shell.ps1 | iex }
-            '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Clear_Windows_Defender_History.ps1 | iex }
+            '5' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallADB_Manager_by_J.K.ps1 | iex }
             '6' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/TeamViewerClassicUI.ps1 | iex }
             '7' { winget install GlavSoft.TightVNC }
             '8' { 
