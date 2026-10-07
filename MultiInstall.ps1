@@ -17,8 +17,8 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.30   ║"
-    Write-Host "║     Last update: 06.10.2026      ║"
+    Write-Host "║   Multi Installer by J.K v3.31   ║"
+    Write-Host "║     Last update: 07.10.2026      ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -67,7 +67,7 @@ function Execute-Podstawowe {
                 Set-ItemProperty -Path "HKCU:\SOFTWARE\TeamViewer" -Name "UIVersion" -Value 2
             }
             '7' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallSpotX.ps1 | iex }
-            '8' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/Office_Installer.ps1 | iex }
+            '8' { irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallOffice.ps1 | iex }
             '9' {
                 Write-Host "Instalacja wszystkich podstawowych programów"
                 $confirm = Read-Host "Czy chcesz kontynuować? (t/n)"

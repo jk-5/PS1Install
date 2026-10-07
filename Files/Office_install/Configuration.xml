@@ -1,9 +1,12 @@
 <Configuration>
   <Add OfficeClientEdition="64">
-    <Product ID="ProPlus2021Retail">
+    <Product ID="Home2024Retail">
       <Language ID="pl-pl" />
-      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="OneDrive" />
       <ExcludeApp ID="Teams" />
+      <ExcludeApp ID="Lync" />
     </Product>
   </Add>
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
