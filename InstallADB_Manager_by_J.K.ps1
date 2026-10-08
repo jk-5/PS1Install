@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 cls
 
 # Definicja zmiennych
-$setupUrl = "https://github.com/jk-5/PS1Install/raw/refs/heads/main/Files/Setup_ADB_Manager_by_J.K_261007.exe"
+$setupUrl = "https://github.com/jk-5/PS1Install/raw/refs/heads/main/Files/Setup_ADB_Manager_by_J.K_261008.exe"
 $installDir = "C:\platform-tools"
 $app = "C:\platform-tools\ADB Manager by J.K.exe"
 
