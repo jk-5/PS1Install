@@ -17,8 +17,8 @@ cls
 function Show-MainMenu {
     $Host.UI.RawUI.ForegroundColor = 'Green'
     Write-Host "╔══════════════════════════════════╗"
-    Write-Host "║   Multi Installer by J.K v3.31   ║"
-    Write-Host "║     Last update: 07.10.2026      ║"
+    Write-Host "║      Multi Installer by J.K      ║"
+    Write-Host "║         v.26.10.19.03.54         ║"
     Write-Host "╠══════════════════════════════════╣"
     Write-Host "║1. Podstawowe                     ║"
     Write-Host "║2. Zaawansowane                   ║"
@@ -36,7 +36,7 @@ function Show-PodstawoweMenu {
     Write-Host "║2. WinRAR                         ║"
     Write-Host "║3. InfanView                      ║"
     Write-Host "║4. K-Lite Codec Pack Mega         ║"
-    Write-Host "║5. Adobe Acrobat Reader DC        ║"
+    Write-Host "║5. PDF-XChange Editor             ║"
     Write-Host "║6. TeamViewer                     ║"
     Write-Host "║7. SpotX (Spotify mod)            ║"
     Write-Host "║8. Office                         ║"
@@ -61,7 +61,7 @@ function Execute-Podstawowe {
                 irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
             }
             '4' { winget install CodecGuide.K-LiteCodecPack.Mega }
-            '5' { winget install Adobe.Acrobat.Reader.64-bit }
+            '5' { winget install TrackerSoftware.PDF-XChangeEditor }
             '6' {
                 winget install TeamViewer.TeamViewer
                 Set-ItemProperty -Path "HKCU:\SOFTWARE\TeamViewer" -Name "UIVersion" -Value 2
@@ -79,7 +79,7 @@ function Execute-Podstawowe {
                     winget install IrfanSkiljan.IrfanView.PlugIns
                     irm https://raw.githubusercontent.com/jk-5/PS1Install/main/InstallIrfanView.ps1 | iex
                     winget install CodecGuide.K-LiteCodecPack.Mega
-                    winget install Adobe.Acrobat.Reader.64-bit
+                    winget install TrackerSoftware.PDF-XChangeEditor
                 }
             }
             '0' { return }
